@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pageonix — Launch Sequence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <meta name="description"
+    content="PageoNix builds custom, high-converting websites for startups, creators, and businesses. We design, develop, and optimize your online presence for real results." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🏷️ Basic SEO -->
+  <title>Pageonix — Next-Gen Web Launch Platform</title>
+  <meta name="description"
+    content="Pageonix by Avijit Singh — Launch modern, scalable, AI-ready web experiences with unmatched speed, security, and creativity." />
+  <meta name="keywords"
+    content="Pageonix, Avijit Singh, DevLord-Avijit, web development, website builder, cloud infrastructure, AI-driven websites, portfolio, launch platform, modern web design, scalable web apps" />
+  <meta name="author" content="Avijit Singh (@DevLord-Avijit)" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://devlord-avijit.github.io/pageonix" />
+
+  <!-- 🌐 Open Graph / Facebook / LinkedIn / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://devlord-avijit.github.io/pageonix" />
+  <meta property="og:title" content="Pageonix — Next-Gen Web Launch Platform" />
+  <meta property="og:description"
+    content="Powered by AI and scalable cloud technology — Pageonix helps you launch lightning-fast, secure, and stunning websites in seconds." />
+  <meta property="og:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Pageonix" />
+
+  <!-- 🐦 Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://devlord-avijit.github.io/pageonix" />
+  <meta name="twitter:title" content="Pageonix — Next-Gen Web Launch Platform" />
+  <meta name="twitter:description"
+    content="AI-driven web launch platform — Create and deploy high-performance websites effortlessly." />
+  <meta name="twitter:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta name="twitter:creator" content="@DevLord_Avijit" />
+
+  <!-- 💬 WhatsApp, Telegram, Discord (Use OpenGraph image) -->
+  <meta property="og:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:secure_url" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:alt" content="Pageonix Logo and Branding" />
+
+  <!-- 📱 Apple / Mobile App Tags -->
+  <meta name="apple-mobile-web-app-title" content="Pageonix" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- 🧭 Favicon and Icons -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="icon" sizes="192x192" href="favicon.png" />
+  <link rel="icon" sizes="512x512" href="favicon.png" />
+  <meta name="theme-color" content="#0f1222" />
+
+  <!-- ⚡ Performance & Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- 🧠 Structured Data (SEO Schema.org for Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Pageonix",
+    "url": "https://devlord-avijit.github.io/pageonix",
+    "logo": "https://devlord-avijit.github.io/pageonix/pageonix.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Avijit Singh",
+      "url": "https://github.com/DevLord-Avijit"
+    },
+    "sameAs": [
+      "https://twitter.com/DevLord_Avijit",
+      "https://github.com/DevLord-Avijit",
+      "https://www.linkedin.com/in/avijit-singh"
+    ],
+    "description": "Next-generation website launch platform — Pageonix delivers scalable, AI-enhanced, performance-optimized web solutions."
+  }
+  </script>
+
+    <style>
+        :root {
+            --bg: #0f1222;
+            --primary: #6C63FF;
+            --accent: #FF6B6B;
+            --neon: #8e88ff;
+            --text: #eef1ff;
+            --muted: #aab0c6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: radial-gradient(800px 500px at 25% 25%, rgba(108, 99, 255, .25), transparent 60%),
+                radial-gradient(900px 700px at 80% 80%, rgba(255, 107, 107, .15), transparent 55%),
+                var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            flex-direction: column;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* === LOGO PHASE === */
+        .logo-only {
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards, stay 2s 2s forwards, fadeOut 1.5s 4s forwards;
+        }
+
+        .logo-only svg {
+            width: clamp(180px, 28vw, 380px);
+            height: clamp(180px, 28vw, 380px);
+            filter: drop-shadow(0 0 20px rgba(108, 99, 255, .6));
+        }
+
+        /* === FEATURES PHASE === */
+        .feature-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 800;
+            opacity: 0;
+            background: linear-gradient(90deg, var(--primary), #8e88ff, #00f5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeFeature 2.8s ease-out forwards;
+            padding: 0 1rem;
+            text-shadow: 0 0 20px rgba(108, 99, 255, .4);
+        }
+
+        .f1 {
+            animation-delay: 5s;
+        }
+
+        .f2 {
+            animation-delay: 8.5s;
+        }
+
+        .f3 {
+            animation-delay: 12s;
+        }
+
+        .f4 {
+            animation-delay: 15.5s;
+        }
+
+        @keyframes fadeFeature {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            15% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            85% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+        }
+
+        /* === OWNER PHASE === */
+        .owner {
+            position: absolute;
+            opacity: 0;
+            animation: fadeInUp 1.8s ease-out forwards 20s, fadeOut 1.5s ease 25s forwards;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .owner h3 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), #8e88ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 25px rgba(108, 99, 255, .35);
+        }
+
+        .owner h2 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, #8e88ff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 30px rgba(108, 99, 255, .4);
+        }
+
+        .owner p {
+            color: var(--muted);
+            font-weight: 700;
+            margin-top: 10px;
+            font-size: clamp(1.8rem, 5.5vw, 2.2rem);
+            letter-spacing: .9px;
+            text-shadow: 0 1px 10px rgba(108, 99, 255, 0.3);
+        }
+
+        /* === MOBILE RESPONSIVE TWEAKS === */
+        @media (max-width: 600px) {
+            .owner {
+                line-height: 1.3;
+                padding: 0 1rem;
+            }
+
+            .owner h3 {
+                font-size: clamp(3.2rem, 10vw, 5rem);
+                margin-bottom: 0.4rem;
+            }
+
+            .owner h2 {
+                font-size: clamp(3.6rem, 11vw, 6rem);
+            }
+
+            .owner p {
+                font-size: clamp(2rem, 8vw, 2.6rem);
+                margin-top: 12px;
+            }
+        }
+
+
+        /* === PRESENTATION PHASE === */
+        .presentation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            animation: fadeInUp 2s ease-out forwards 26.5s, fadeOut 2s ease 30s forwards;
+        }
+
+        .presentation h3 {
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), #00f5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 25px rgba(108, 99, 255, .4);
+        }
+
+        .presentation p {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--muted);
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* === FINAL PAGEONIX STATIC LOGO PHASE === */
+        .final-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in-out forwards 32.5s;
+            padding: 2rem;
+        }
+
+        .final-logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(20px, 4vw, 40px);
+            margin-bottom: clamp(30px, 4vh, 60px);
+        }
+
+        .final-logo svg {
+            width: clamp(140px, 20vw, 280px);
+            height: clamp(140px, 20vw, 280px);
+            filter: drop-shadow(0 0 15px rgba(108, 99, 255, .4));
+        }
+
+        .final-logo span {
+            font-weight: 900;
+            font-size: clamp(3rem, 7vw, 6rem);
+            background: linear-gradient(90deg, var(--primary), #8e88ff, #00f5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 3px 20px rgba(108, 99, 255, .3);
+        }
+
+        .start-btn {
+            position: relative;
+            padding: clamp(20px, 3vw, 32px) clamp(50px, 8vw, 80px);
+            border: none;
+            border-radius: 20px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.676);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            background: linear-gradient(90deg, var(--primary), #01123e);
+            box-shadow: 0 10px 40px rgba(20, 15, 109, 0.45);
+            transition: all .3s ease;
+            cursor: default;
+            overflow: hidden;
+        }
+
+        .start-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg,
+                    transparent,
+                    transparent,
+                    rgba(255, 255, 255, 0.564),
+                    transparent,
+                    transparent);
+            transform: translateX(-100%);
+            opacity: 0;
+            animation: shine 2.5s ease-out 36s forwards;
+        }
+
+        @keyframes shine {
+            0% {
+                opacity: 1;
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        /* === KEYFRAMES === */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes stay {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* === RESPONSIVE FIXES === */
+        @media (max-width: 600px) {
+            .feature-text {
+                font-size: clamp(1.8rem, 8vw, 3rem);
+                padding: 0 1rem;
+            }
+
+            .logo-only svg {
+                width: clamp(180px, 55vw, 280px);
+                height: clamp(180px, 55vw, 280px);
+            }
+
+            .final-logo span {
+                font-size: clamp(2.8rem, 10vw, 4.2rem);
+            }
+
+            .final-logo svg {
+                width: clamp(120px, 45vw, 200px);
+                height: clamp(120px, 45vw, 200px);
+            }
+
+            .start-btn {
+                width: 85%;
+                font-size: clamp(1.4rem, 5vw, 2rem);
+                padding: 20px 0;
+            }
+        }
+
+        /* Skip Intro Button Styles */
+        .skip-intro {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 28px;
+            background: rgba(177, 177, 177, 0.25);
+            border: 2px solid var(--primary);
+            color: var(--text);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hover / Touch Feedback */
+        .skip-intro:hover,
+        .skip-intro:active {
+            background: rgba(108, 99, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Skip-to-Final logic */
+        .skip-to-final .final-screen {
+            animation: none;
+            opacity: 1;
+        }
+
+        .skip-to-final .logo-only,
+        .skip-to-final .feature-text,
+        .skip-to-final .owner,
+        .skip-to-final .presentation {
+            display: none;
+        }
+
+        /* 🌐 Responsive — make button easier to tap on phones and tablets */
+        @media (max-width: 768px) {
+            .skip-intro {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                left: auto;
+                font-size: 1.2rem;
+                padding: 16px 34px;
+                border-radius: 14px;
+                background: rgba(108, 99, 255, 0.25);
+                border-width: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skip-intro {
+                bottom: 25px;
+                right: 25px;
+                font-size: 1.3rem;
+                padding: 18px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="skip-intro">Skip Intro</button>
+
+    <!-- Stage 1: Logo only -->
+    <div class="logo-only">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#6C63FF" />
+                    <stop offset="1" stop-color="#8e88ff" />
+                </linearGradient>
+            </defs>
+            <circle cx="24" cy="24" r="22" stroke="url(#grad)" stroke-width="2" fill="rgba(255,255,255,.04)" />
+            <path d="M17 31c6-1 14-1 14-8 0-6-6-8-12-6" stroke="url(#grad)" stroke-width="3" stroke-linecap="round" />
+            <path d="M19 17c-2 6-2 12 4 16" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <!-- Stage 2: Feature Words -->
+    <div class="feature-text f1">Powered by Scalable Cloud Infrastructure</div>
+    <div class="feature-text f2">Optimized for Lightning-Fast Performance</div>
+    <div class="feature-text f3">AI-Driven Security & Adaptive Systems</div>
+    <div class="feature-text f4">Next-Gen Technology & Infinite Possibilities</div>
+
+    <!-- Stage 3: Owner Name -->
+    <div class="owner">
+        <h3>Brought to you by <h2>Avijit Singh</h2>
+        </h3>
+        <p>@DevLord-Avijit</p>
+    </div>
+
+    <!-- Stage 3.5: Presentation Phase -->
+    <div class="presentation">
+        <h3>Presenting to You</h3>
+
+    </div>
+
+    <!-- Stage 4: Final Static Logo + Box -->
+    <div class="final-screen">
+        <div class="final-logo">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#6C63FF" />
+                        <stop offset="1" stop-color="#8e88ff" />
+                    </linearGradient>
+                </defs>
+                <circle cx="24" cy="24" r="22" stroke="url(#grad2)" stroke-width="2" fill="rgba(255,255,255,.04)" />
+                <path d="M17 31c6-1 14-1 14-8 0-6-6-8-12-6" stroke="url(#grad2)" stroke-width="3"
+                    stroke-linecap="round" />
+                <path d="M19 17c-2 6-2 12 4 16" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <span>PageoNix.</span>
+        </div>
+        <div class="start-btn">
+            <a href="pages/page.html" style="all:unset; 
+            cursor:pointer; 
+            display:inline-block; 
+            
+            color:rgb(255, 255, 255); 
+            text-decoration:none; 
+            padding:10px 20px; 
+            border-radius:6px; 
+            " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                Start Now
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('.skip-intro').addEventListener('click', function () {
+            document.body.classList.add('skip-to-final');
+            this.style.display = 'none';
+
+            // Stop all running animations
+            document.querySelectorAll('*').forEach(element => {
+                element.getAnimations().forEach(animation => {
+                    animation.cancel();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

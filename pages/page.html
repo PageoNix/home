@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PageoNix — Beautiful, High-Performance Websites for Modern Brands</title>
+  <meta name="description"
+    content="PageoNix builds custom, high-converting websites for startups, creators, and businesses. We design, develop, and optimize your online presence for real results." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🏷️ Basic SEO -->
+  <title>Pageonix — Next-Gen Web Launch Platform</title>
+  <meta name="description"
+    content="Pageonix by Avijit Singh — Launch modern, scalable, AI-ready web experiences with unmatched speed, security, and creativity." />
+  <meta name="keywords"
+    content="Pageonix, Avijit Singh, DevLord-Avijit, web development, website builder, cloud infrastructure, AI-driven websites, portfolio, launch platform, modern web design, scalable web apps" />
+  <meta name="author" content="Avijit Singh (@DevLord-Avijit)" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://devlord-avijit.github.io/pageonix" />
+
+  <!-- 🌐 Open Graph / Facebook / LinkedIn / Discord -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://devlord-avijit.github.io/pageonix" />
+  <meta property="og:title" content="Pageonix — Next-Gen Web Launch Platform" />
+  <meta property="og:description"
+    content="Powered by AI and scalable cloud technology — Pageonix helps you launch lightning-fast, secure, and stunning websites in seconds." />
+  <meta property="og:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Pageonix" />
+
+  <!-- 🐦 Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://devlord-avijit.github.io/pageonix" />
+  <meta name="twitter:title" content="Pageonix — Next-Gen Web Launch Platform" />
+  <meta name="twitter:description"
+    content="AI-driven web launch platform — Create and deploy high-performance websites effortlessly." />
+  <meta name="twitter:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta name="twitter:creator" content="@DevLord_Avijit" />
+
+  <!-- 💬 WhatsApp, Telegram, Discord (Use OpenGraph image) -->
+  <meta property="og:image" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:secure_url" content="https://devlord-avijit.github.io/pageonix/pageonix.png" />
+  <meta property="og:image:alt" content="Pageonix Logo and Branding" />
+
+  <!-- 📱 Apple / Mobile App Tags -->
+  <meta name="apple-mobile-web-app-title" content="Pageonix" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- 🧭 Favicon and Icons -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="icon" sizes="192x192" href="favicon.png" />
+  <link rel="icon" sizes="512x512" href="favicon.png" />
+  <meta name="theme-color" content="#0f1222" />
+
+  <!-- ⚡ Performance & Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- 🧠 Structured Data (SEO Schema.org for Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Pageonix",
+    "url": "https://devlord-avijit.github.io/pageonix",
+    "logo": "https://devlord-avijit.github.io/pageonix/pageonix.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Avijit Singh",
+      "url": "https://github.com/DevLord-Avijit"
+    },
+    "sameAs": [
+      "https://twitter.com/DevLord_Avijit",
+      "https://github.com/DevLord-Avijit",
+      "https://www.linkedin.com/in/avijit-singh"
+    ],
+    "description": "Next-generation website launch platform — Pageonix delivers scalable, AI-enhanced, performance-optimized web solutions."
+  }
+  </script>
+
+
+  <style>
+    :root {
+      --bg: #0f1222;
+      /* deep night */
+      --card: #14182d;
+      /* panels */
+      --muted: #aab0c6;
+      /* secondary text */
+      --text: #eef1ff;
+      /* primary text */
+      --primary: #6C63FF;
+      /* indigo */
+      --accent: #FF6B6B;
+      /* soft red */
+      --ring: rgba(108, 99, 255, .35);
+      --success: #2ed573;
+      --warning: #ffd166;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      --glass: rgba(255, 255, 255, .06);
+
+      /* navbar height for fixed positioning */
+      --nav-height: 68px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+
+      /* offset page content to account for fixed nav */
+      padding-top: var(--nav-height);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(108, 99, 255, .25), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(255, 107, 107, .18), transparent 55%);
+      background-attachment: fixed;
+    }
+
+    /* ====== Nav ====== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(15, 18, 34, .88), rgba(15, 18, 34, .6));
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .nav-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    /* 🟢 Bigger logo */
+    .brand svg {
+      width: 52px;
+      height: 52px;
+    }
+
+    /* 🟢 Bigger and bolder brand name */
+    .brand span {
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .cta-btn {
+      margin-left: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), #8e88ff);
+      color: white;
+      font-weight: 700;
+      border: 0;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(108, 99, 255, .45);
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* ====== Hero ====== */
+    .hero {
+      position: relative;
+      overflow: visible;
+      isolation: isolate
+    }
+
+    .hero-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 80px 20px 56px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: linear-gradient(90deg, rgba(108, 99, 255, .14), rgba(0, 245, 225, .03));
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .85rem;
+      margin-bottom: 12px
+    }
+
+    .headline {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1.02;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin: 0 0 12px;
+      color: var(--text)
+    }
+
+    .headline .accent {
+      background: linear-gradient(90deg, var(--primary), #00f5e1, #8e88ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: hueShift 6s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes hueShift {
+      0% {
+        background-position: 0%
+      }
+
+      50% {
+        background-position: 100%
+      }
+
+      100% {
+        background-position: 0%
+      }
+    }
+
+    /* ====== Video Section (Improved Responsive Layout) ====== */
+    .video-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 20px;
+    }
+
+    .video-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      /* allows stacking on small screens */
+    }
+
+    .video-text {
+      flex: 1 1 200px;
+      text-align: left;
+    }
+
+    .video-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .video-text p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    /* video container */
+    .video-wrapper {
+      flex: 1 1 200px;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.2);
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 18px;
+      display: block;
+    }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 1024px) {
+      .video-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .video-text {
+        text-align: center;
+      }
+
+      .video-text p {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+
+      .video-wrapper {
+        flex: 1 1 300px;
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .video-section {
+        padding: 40px 16px;
+      }
+
+      .video-wrapper {
+        border-radius: 14px;
+        box-shadow: 0 10px 40px rgba(108, 99, 255, 0.15);
+      }
+    }
+
+    /* Video ends */
+
+
+    .sub {
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      margin-bottom: 18px;
+      max-width: 62ch
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
+      border: 1px solid rgba(255, 255, 255, .06);
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(108, 99, 255, .16), rgba(0, 245, 225, .04));
+      border: 1px solid rgba(108, 99, 255, .2);
+      color: #f9fffb;
+      box-shadow: 0 12px 30px rgba(108, 99, 255, .15);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .06);
+      color: var(--muted)
+    }
+
+    .btn:active {
+      transform: translateY(1px)
+    }
+
+    /* right panel visual */
+    .hero-visual {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 12px;
+      padding: 18px;
+      position: relative;
+    }
+
+    .visual-card {
+      width: 100%;
+      max-width: 640px;
+      aspect-ratio: 16/9;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01));
+      border: 1px solid rgba(255, 255, 255, .06);
+      box-shadow: 0 30px 100px rgba(108, 99, 255, .09);
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(0);
+      transition: transform .32s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    .visual-card:hover {
+      transform: translateY(-8px)
+    }
+
+    .device-mock {
+      width: 94%;
+      height: 80%;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #020317, #07102a);
+      border: 1px solid rgba(108, 99, 255, .08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .02), 0 18px 40px rgba(0, 0, 0, .6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .device-mock .content {
+      width: 98%;
+      height: 92%;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(108, 99, 255, .03), rgba(0, 245, 225, .02));
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      transform: translateZ(0);
+    }
+
+    /* fix ring transform bug and subtle sizing */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(108, 99, 255, .08);
+      filter: blur(10px);
+      animation: ringPulse 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+
+    .ring.r1 {
+      width: 420px;
+      height: 420px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(.55);
+      opacity: .08
+    }
+
+    .ring.r2 {
+      width: 260px;
+      height: 260px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: .06;
+      animation-duration: 8s
+    }
+
+    /* dashboard layout inside device */
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .kpi {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi-num {
+      font-size: 1.45rem;
+      color: #fff;
+      letter-spacing: .4px
+    }
+
+    .kpi-label {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 700
+    }
+
+    .live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #00f5e1;
+      font-weight: 800;
+      font-size: .9rem
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00f5e1;
+      box-shadow: 0 0 12px rgba(0, 245, 225, .9);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(.9);
+        opacity: .9
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 1
+      }
+
+      100% {
+        transform: scale(.9);
+        opacity: .9
+      }
+    }
+
+    /* sparkline */
+    .sparkline {
+      width: 100%;
+      height: 48px;
+      display: block
+    }
+
+    .sparkline path {
+      fill: none;
+      stroke: url(#grad);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: .95
+    }
+
+    .dash-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .dash-footer strong {
+      color: #fff
+    }
+
+    /* responsive tweaks for very large screens */
+    @media (min-width: 1400px) {
+      .visual-card {
+        max-width: 820px;
+      }
+
+      .device-mock {
+        width: 96%;
+        height: 84%
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        padding: 56px 18px 40px
+      }
+
+      .visual-card {
+        max-width: 420px
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-inner {
+        padding: 36px 14px
+      }
+
+      .visual-card {
+        width: 94%;
+        height: 72%
+      }
+
+      .headline {
+        font-size: clamp(2.6rem, 6vw, 2.2rem)
+      }
+
+      .kpi-num {
+        font-size: 1.1rem
+      }
+
+      .brand svg {
+        width: 28px;
+        height: 28px
+      }
+
+      /* restore for small screens */
+      .brand span {
+        font-size: unset;
+        font-weight: 800
+      }
+    }
+
+    /* ====== Stats ====== */
+    .stats {
+      max-width: 1200px;
+      margin: 10px auto 0;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 14px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat h3 {
+      margin: 0;
+      font-size: 1.8rem
+    }
+
+    .stat p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    /* ====== Features ====== */
+    .section {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 44px 20px
+    }
+
+    .section h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 8px
+    }
+
+    .section p.lead {
+      color: var(--muted);
+      margin: 0 0 28px
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .feature {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, .07)
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), #8e88ff);
+      margin-bottom: 10px
+    }
+
+    .feature h4 {
+      margin: .2rem 0 .25rem
+    }
+
+    .feature p {
+      color: var(--muted);
+      margin: 0
+    }
+
+    /* ====== Demo Panel ====== */
+    .demo {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 20px
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      margin: 0 0 12px
+    }
+
+    .code {
+      background: #0b0e1e;
+      border-radius: 12px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .88rem;
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .preview {
+      display: grid;
+      gap: 10px
+    }
+
+    .preview .row {
+      display: flex;
+      gap: 10px
+    }
+
+    .input {
+      flex: 1;
+      border-radius: 12px;
+      padding: 12px 12px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: var(--text)
+    }
+
+    .select {
+      appearance: none
+    }
+
+    .progress {
+      height: 10px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 10px;
+      overflow: hidden
+    }
+
+    .progress>span {
+      display: block;
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, var(--accent), #ffa8a8)
+    }
+
+    /* ====== Testimonials ====== */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .quote {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 18px
+    }
+
+    .quote p {
+      margin: 0
+    }
+
+    .quote .who {
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    /* ====== Pricing ====== */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .tier {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      padding: 22px;
+      position: relative
+    }
+
+    .badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--primary), #8e88ff);
+      color: white;
+      font-size: .75rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 8px 0
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 16px;
+      color: var(--muted)
+    }
+
+    .features-list li {
+      margin: 8px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start
+    }
+
+    .check {
+      color: var(--success);
+      font-weight: 900
+    }
+
+    /* ====== FAQ ====== */
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      padding: 14px
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800
+    }
+
+    details p {
+      color: var(--muted)
+    }
+
+    /* ====== Footer ====== */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      margin-top: 48px
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .social {
+      display: flex;
+      gap: 10px
+    }
+
+    .social a {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    /* ====== Responsive tweaks ====== */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr
+      }
+
+      .demo {
+        grid-template-columns: 1fr
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .pricing {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .faq {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      /* reduce nav height on small screens and adjust body offset */
+      :root {
+        --nav-height: 60px;
+      }
+
+      body {
+        padding-top: var(--nav-height);
+      }
+
+      .nav-inner {
+        padding: 0 16px;
+        gap: 10px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .features,
+      .pricing,
+      .testimonials {
+        grid-template-columns: 1fr
+      }
+
+      .nav-inner {
+        padding: 12px
+      }
+
+      .hero-inner {
+        padding: 48px 16px 24px
+      }
+
+      .section {
+        padding: 32px 16px
+      }
+
+      .brand svg {
+        width: 28px;
+        height: 28px
+      }
+
+      /* restore for small screens */
+      .brand span {
+        font-size: unset;
+        font-weight: 800
+      }
+    }
+
+    /* waitlist panel + beta badge */
+    .beta-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, rgba(108,99,255,.14), rgba(0,245,225,.03));
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .8rem;
+      padding: 6px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .waitlist-panel {
+      margin-top: 18px;
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 12px;
+      align-items: center;
+    }
+
+    .waitlist-panel .count {
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #fff;
+      min-width: 72px;
+      text-align: center;
+      background: linear-gradient(90deg, var(--primary), #00f5e1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .waitlist-form {
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .waitlist-input {
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+      color:var(--text);
+      outline: none;
+      font-weight:600;
+    }
+
+    .waitlist-btn {
+      padding:9px 14px;
+      border-radius:10px;
+      border:0;
+      background: linear-gradient(90deg, var(--primary), #8e88ff);
+      color:white;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 8px 30px rgba(108,99,255,.12);
+    }
+
+    @media (max-width: 900px) {
+      .waitlist-panel { flex-direction: column; gap: 8px; align-items:flex-start; }
+      .waitlist-form { width:100%; }
+      .waitlist-input { flex:1; width:100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6C63FF" />
+              <stop offset="1" stop-color="#8e88ff" />
+            </linearGradient>
+          </defs>
+          <circle cx="24" cy="24" r="22" stroke="url(#g)" stroke-width="2" fill="rgba(255,255,255,.04)" />
+          <path d="M17 31c6-1 14-1 14-8 0-6-6-8-12-6" stroke="url(#g)" stroke-width="3" stroke-linecap="round" />
+          <path d="M19 17c-2 6-2 12 4 16" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <span>PageoNix</span>
+        <span class="beta-badge">Beta</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Join our beta waitlist</div>
+
+        <!-- updated headline and sub for beta -->
+        <h1 class="headline">Be first to launch with <span class="accent">PageoNix Beta</span>.</h1>
+        <p class="sub">We're in private beta — builders and early teams are pre-registering now. Get access to early pricing, priority onboarding, and hands-on support.</p>
+
+        <div class="hero-ctas">
+          <button class="btn primary" onclick="scrollToEl('#pricing')">Get Started</button>
+          <button class="btn secondary" onclick="scrollToEl('#features')">Our Services</button>
+        </div>
+
+        <!-- new waitlist panel -->
+        <div class="waitlist-panel" aria-live="polite" title="Pre-registrations">
+          <div>
+            <div class="count" id="preRegCout">120+</div>
+            <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">Pre-registrations</div>
+          </div>
+
+          <form class="waitlist-form" onsubmit="joinWaitlist(event)">
+            <button class="waitlist-btn" id="waitBtn" ><a href="https://avijitsingh.ct.ws/forms" style="all:unset;
+                cursor:pointer;
+                display:inline-block;
+                background-color:white;
+                color:black;
+                text-decoration:none;
+                padding:10px 20px;
+                border-radius:6px;
+                border:1px solid black;
+                font-weight:600;
+                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          Join Waitlist
+        </a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ===== VIDEO SHOWCASE ===== -->
+  <section class="video-section section">
+    <div class="video-container">
+      <div class="video-text">
+        <h2>Showcase</h2>
+        <p class="lead">
+          PageoNix is a creative web design and development studio dedicated to building beautiful, high-performance
+          websites that empower modern brands. We blend strategy, aesthetics, and technology to craft digital
+          experiences that engage audiences and drive results. We turn ideas into digital impact.
+
+        </p>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/jwBoB05HJKQ?autoplay=0&loop=1&playlist=jwBoB05HJKQ&controls=1&modestbranding=1&rel=0&iv_load_policy=3&cachebust=1"
+          title="YouTube video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="stat">
+      <h3 id="stat-prereg">120+</h3>
+      <p>Pre-registrations</p>
+    </div>
+    <div class="stat">
+      <h3>320</h3>
+      <p>Active beta members</p>
+    </div>
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Demo requests</p>
+    </div>
+    <div class="stat">
+      <h3>12</h3>
+      <p>Early integrations</p>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="section">
+    <h2>Our Services</h2>
+    <p class="lead">We design, build, and optimize modern websites that elevate your brand and drive results.</p>
+    <div class="features">
+      <div class="feature">
+
+        <h4>Web Design</h4>
+        <p>Custom UI/UX design built for your brand — aesthetic, accessible, and conversion-focused.</p>
+      </div>
+      <div class="feature">
+
+        <h4>Web Development</h4>
+        <p>Responsive, fast, and SEO-friendly sites coded for scalability and performance.</p>
+      </div>
+      <div class="feature">
+
+        <h4>SEO & Optimization</h4>
+        <p>We optimize your site for visibility, speed, and growth — from metadata to mobile performance.</p>
+      </div>
+      <div class="feature">
+
+        <h4>Brand Identity</h4>
+        <p>We help define your voice, style, and visuals — building trust through strong design consistency.</p>
+      </div>
+      <div class="feature">
+
+        <h4>Maintenance & Growth</h4>
+        <p>Ongoing updates, analytics insights, and improvements that keep your site performing at its best.</p>
+      </div>
+      <div class="feature">
+
+        <h4>Consultation & Support</h4>
+        <p>Direct access to our team for strategy, content advice, and technical updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEMO / SHOWCASE ===== -->
+  <section id="demo" class="section">
+    <h2>Our Recent Work</h2>
+    <p class="lead">A few of the projects we’ve designed and developed for businesses like yours.</p>
+    <div class="demo">
+      <div class="card">
+        <p class="panel-title">Portfolio Sites</p>
+        <p>Minimal, elegant, and responsive — perfect for artists, creators, and freelancers.</p>
+      </div>
+      <div class="card">
+        <p class="panel-title"> Business Websites</p>
+        <p>Conversion-optimized designs for cafes, startups, and service brands.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS (Early feedback) ===== -->
+  <section class="section">
+    <h2>Early feedback from our beta</h2>
+    <p class="lead">What early users are saying while we iterate and improve.</p>
+    <div class="testimonials">
+      <div class="quote">
+        <p>“Fast setup, great defaults — we launched our landing page in under an hour.”</p>
+        <div class="who">— Priya, Founder (beta)</div>
+      </div>
+      <div class="quote">
+        <p>“The team was responsive and helped us with a custom integration during onboarding.”</p>
+        <div class="who">— Martin, Product Lead (beta)</div>
+      </div>
+      <div class="quote">
+        <p>“Polished UX and performance — excited for the public launch.”</p>
+        <div class="who">— Zoe, Designer (beta)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="section">
+    <h2>Simple Pricing</h2>
+    <p class="lead">Flexible packages to fit your goals — whether you're launching your first site or scaling your
+      brand.</p>
+
+    <div class="pricing">
+      <!-- Tier 1 -->
+      <div class="tier">
+        <div class="badge">Starter</div>
+        <h3>Basic</h3>
+        <p class="price">$0</p>
+        <ul class="features-list">
+          <li><span class="check">✔</span> Free consultation call</li>
+          <li><span class="check">✔</span> Homepage design sample</li>
+          <li><span class="check">✔</span> Project roadmap</li>
+        </ul>
+        <a href="https://avijitsingh.ct.ws/forms" style="all:unset;
+                cursor:pointer;
+                display:inline-block;
+                background-color:white;
+                color:black;
+                text-decoration:none;
+                padding:10px 20px;
+                border-radius:6px;
+                border:1px solid black;
+                font-weight:600;
+                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          Start
+        </a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="tier" style="border-color:rgba(255,255,255,.15); box-shadow:0 20px 60px rgba(108,99,255,.25)">
+        <div class="badge">Most Popular</div>
+        <h3>Pro Website</h3>
+        <p class="price">$799<span style="font-size:.9rem;color:var(--muted)"> /project</span></p>
+        <ul class="features-list">
+          <li><span class="check">✔</span> Custom 5-page website</li>
+          <li><span class="check">✔</span> SEO & performance optimization</li>
+          <li><span class="check">✔</span> Responsive mobile design</li>
+          <li><span class="check">✔</span> 1 month post-launch support</li>
+        </ul>
+        <a href="https://avijitsingh.ct.ws/forms" style="all:unset;
+                cursor:pointer;
+                display:inline-block;
+                background-color:white;
+                color:black;
+                text-decoration:none;
+                padding:10px 20px;
+                border-radius:6px;
+                border:1px solid black;
+                font-weight:600;
+                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          Start
+        </a>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="tier">
+        <div class="badge">Teams</div>
+        <h3>Business+</h3>
+        <p class="price">$1599<span style="font-size:.9rem;color:var(--muted)"> /project</span></p>
+        <ul class="features-list">
+          <li><span class="check">✔</span> Advanced multi-page website</li>
+          <li><span class="check">✔</span> Brand identity package</li>
+          <li><span class="check">✔</span> Ongoing optimization</li>
+          <li><span class="check">✔</span> Priority creative support</li>
+        </ul>
+        <a href="https://avijitsingh.ct.ws/forms" style="all:unset;
+                cursor:pointer;
+                display:inline-block;
+                background-color:white;
+                color:black;
+                text-decoration:none;
+                padding:10px 20px;
+                border-radius:6px;
+                border:1px solid black;
+                font-weight:600;
+                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          Start
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Do you design from scratch?</summary>
+        <p>Yes — every website is custom-built for your goals, audience, and visual identity.</p>
+      </details>
+      <details>
+        <summary>Can you help with branding or logos?</summary>
+        <p>Absolutely. We offer full identity design — logos, color palettes, and brand guidelines.</p>
+      </details>
+      <details>
+        <summary>Do you maintain the website after launch?</summary>
+        <p>Yes, we offer flexible maintenance and update packages after delivery.</p>
+      </details>
+      <details>
+        <summary>How long does it take to build a website?</summary>
+        <p>Most projects are completed in 2–4 weeks, depending on size and revisions.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div style="display:flex; align-items:center; gap:10px">
+        <strong>PageoNix</strong>
+        <span style="opacity:.65">© 2025</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="toast"
+    style="position:fixed; left:50%; transform:translateX(-50%); bottom:24px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); color:#fff; padding:12px 16px; border-radius:12px; display:none; backdrop-filter: blur(8px)">
+  </div>
+
+  <script>
+    // filepath: d:\cdraft\Pageonix\pageonix\pages\page.html
+    function scrollToEl(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg; el.style.display = 'block'; el.style.opacity = '1';
+      setTimeout(() => {
+        el.style.transition = 'opacity .6s'; el.style.opacity = '0';
+        setTimeout(() => { el.style.display = 'none'; el.style.transition = ''; }, 650);
+      }, 1800);
+    }
+
+    // Waitlist behavior: persist and increment pre-registration counter
+    (function() {
+      const key = 'pageonix_preReg';
+      const defaultCount = 1208;
+      const el = document.getElementById('preRegCount');
+      const stat = document.getElementById('stat-prereg');
+      let count = parseInt(localStorage.getItem(key) || defaultCount, 10);
+      el && (el.textContent = count.toLocaleString());
+      stat && (stat.textContent = count.toLocaleString());
+      window._pageonix_preReg = { key, el, stat, getCount: () => count, setCount: c => {
+        count = c;
+        try { localStorage.setItem(key, count); } catch(e) {}
+        if (el) el.textContent = count.toLocaleString();
+        if (stat) stat.textContent = count.toLocaleString();
+      }};
+    })();
+
+    function joinWaitlist(e) {
+      e && e.preventDefault();
+      const emailEl = document.getElementById('waitEmail');
+      const btn = document.getElementById('waitBtn');
+      if (!emailEl || !btn) return;
+      const email = emailEl.value?.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        toast('Please enter a valid email.');
+        return;
+      }
+
+      // basic throttle to prevent spamming the button
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+
+      // simulate server signup / persist in localStorage set
+      setTimeout(() => {
+        // increment counter and persist
+        const s = window._pageonix_preReg;
+        s && s.setCount(s.getCount() + 1);
+
+        // record simple "joined" flag to prevent duplicate signups from same browser
+        try { localStorage.setItem('pageonix_joined_' + email.toLowerCase(), '1'); } catch (err) {}
+
+        toast('Thanks — you’re on the waitlist. We’ll email when we launch.');
+        btn.textContent = 'Joined';
+      }, 700);
+    }
+  </script>
+</body>
+</html>
