@@ -239,10 +239,10 @@
     .hero-inner {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 80px 20px 56px;
+      padding: clamp(40px, 8vw, 50px) clamp(16px, 4vw, 24px) clamp(32px, 6vw, 16px);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+      gap: clamp(24px, 4vw, 40px);
       align-items: center;
     }
 
@@ -258,8 +258,8 @@
     }
 
     .headline {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      line-height: 1.02;
+      font-size: clamp(3.2rem, 5vw, 3.6rem);
+      line-height: 1.1;
       font-weight: 900;
       letter-spacing: -.02em;
       margin: 0 0 12px;
@@ -295,16 +295,15 @@
     .video-section {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 20px 20px;
+      padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 24px);
     }
 
     .video-container {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+      gap: clamp(24px, 4vw, 40px);
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-      /* allows stacking on small screens */
+      padding: clamp(20px, 4vw, 40px) 0;
     }
 
     .video-text {
@@ -348,26 +347,19 @@
 
     /* ===== Responsive Design ===== */
     @media (max-width: 1024px) {
-      .video-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 24px;
-      }
-
-      .video-text {
-        text-align: center;
-      }
-
-      .video-text p {
-        max-width: 90%;
+      .hero-right {
+        max-width: 600px;
         margin: 0 auto;
       }
-
-      .video-wrapper {
-        flex: 1 1 300px;
-        width: 100%;
-        aspect-ratio: 16/9;
+      
+      .video-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .video-text {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
       }
     }
 
@@ -380,16 +372,29 @@
         border-radius: 14px;
         box-shadow: 0 10px 40px rgba(108, 99, 255, 0.15);
       }
+
+      .hero-benefits {
+        padding: 16px;
+      }
+      
+      .benefit-item {
+        gap: 10px;
+      }
+      
+      .benefit-icon {
+        width: 28px;
+        height: 28px;
+      }
     }
 
     /* Video ends */
 
 
     .sub {
-      color: var(--muted);
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      max-width: 580px;
       margin-bottom: 18px;
-      max-width: 62ch
+      color: var(--muted);
     }
 
     .hero-ctas {
@@ -631,32 +636,17 @@
     }
 
     @media (max-width: 640px) {
-      .hero-inner {
-        padding: 36px 14px
+      .hero-benefits {
+        padding: 16px;
       }
-
-      .visual-card {
-        width: 94%;
-        height: 72%
+      
+      .benefit-item {
+        gap: 10px;
       }
-
-      .headline {
-        font-size: clamp(2.6rem, 6vw, 2.2rem)
-      }
-
-      .kpi-num {
-        font-size: 1.1rem
-      }
-
-      .brand svg {
+      
+      .benefit-icon {
         width: 28px;
-        height: 28px
-      }
-
-      /* restore for small screens */
-      .brand span {
-        font-size: unset;
-        font-weight: 800
+        height: 28px;
       }
     }
 
@@ -785,7 +775,7 @@
     .section {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 44px 20px
+      padding: clamp(32px, 6vw, 60px) clamp(16px, 4vw, 24px);
     }
 
     .section h2 {
@@ -800,8 +790,8 @@
 
     .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: clamp(16px, 2vw, 24px);
     }
 
     .feature {
@@ -927,8 +917,8 @@
     /* ====== Pricing ====== */
     .pricing {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: clamp(16px, 3vw, 24px);
     }
 
     .tier {
@@ -1090,7 +1080,7 @@
       }
 
       .hero-inner {
-        padding: 48px 16px 24px
+        padding: 0px 16px;
       }
 
       .section {
@@ -1125,6 +1115,7 @@
     .waitlist-panel {
       margin-top: 18px;
       display: inline-flex;
+      max-width: 20rem;
       gap: 14px;
       align-items: center;
       background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01));
@@ -1188,6 +1179,46 @@
         width: 100%;
       }
     }
+
+    /* Add new hero right section styles */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-benefits {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .benefit-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .benefit-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(108,99,255,.1), rgba(0,245,225,.1));
+    }
+
+    .benefit-text {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
   </style>
 </head>
 
@@ -1223,85 +1254,73 @@
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="hero-inner">
-
-    <!-- LEFT: Text / Headline -->
     <div class="hero-content">
       <div class="hero-kicker">Join our beta waitlist</div>
-
-      <h1 class="headline">
-        Launch faster with <span class="accent">PageoNix</span>
-      </h1>
-
+      <h1 class="headline">Launch faster with <span class="accent">PageoNix</span></h1>
       <p class="sub">
-        We’re a modern web studio delivering high-performance websites and full-stack products for startups and creators.
-        Built with speed, security, and design precision — ready for the next generation of the web.
+        We're a modern web studio delivering high-performance websites and full-stack products for startups and creators.
+        Built with speed, security, and design precision.
       </p>
-    </div>
-
-    <!-- RIGHT: CTAs + Waitlist Info -->
-    <div class="hero-right">
-      <div class="hero-actions">
-        <div class="hero-ctas">
-          <button class="btn primary" onclick="scrollToEl('#pricing')">Get Started</button>
-          <button class="btn secondary" onclick="scrollToEl('#features')">Our Services</button>
-        </div>
-
-        <div class="waitlist-panel" aria-live="polite" title="Pre-registrations">
-          <div>
-            <div class="count" id="preRegCount">120+</div>
-            <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
-              Pre-registrations
-            </div>
-          </div>
-          <button class="waitlist-btn" id="waitBtn" type="submit"><a href="https://avijitsingh.ct.ws/forms" style="all:unset;
-                cursor:pointer;
-                display:inline-block;
-                
-                color:rgb(255, 255, 255);
-                text-decoration:none;
-                padding:10px 20px;
-                border-radius:6px;
-                
-                font-weight:600;
-                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-          Join Waitlist
-        </a></button>
-        </div>
-
-        <p class="early-info">
-          Early registrants receive: priority onboarding, introductory pricing,
-          a free 30-minute strategy call, and a migration credit for existing sites.
-        </p>
+      <div class="hero-ctas">
+        <button class="btn primary" onclick="scrollToEl('#pricing')">Get Started</button>
+        <button class="btn secondary" onclick="scrollToEl('#features')">Our Services</button>
       </div>
     </div>
 
+    <div class="hero-right">
+      <div class="waitlist-panel">
+        <div>
+          <div class="count" id="preRegCount">120+</div>
+          <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
+            Pre-registrations
+          </div>
+        </div>
+        <button class="waitlist-btn" id="waitBtn" type="submit">
+          <a href="https://avijitsingh.ct.ws/forms" style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
+            Join Waitlist
+          </a>
+        </button>
+      </div>
+
+      <div class="hero-benefits">
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Priority access to beta features.</div>
+        </div>
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Free call with our engineer</div>
+        </div>
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Dedicated launch assistance</div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
 
   <!-- ===== VIDEO SHOWCASE ===== -->
-  <section class="video-section section">
+  <section class="video-section">
     <div class="video-container">
       <div class="video-text">
-        <h2>Showcase</h2>
+        <h2>See it in action</h2>
         <p class="lead">
-          PageoNix is a creative web design and development studio dedicated to building beautiful, high-performance
-          websites that empower modern brands. We blend strategy, aesthetics, and technology to craft digital
-          experiences that engage audiences and drive results. We turn ideas into digital impact.
-
+          Watch how we transform ideas into high-performance digital experiences. Our showcase demonstrates our commitment to speed, security, and pixel-perfect design.
+          This is just a glimpse of what we can build together. Our full services cover everything from frontend to backend, DevOps, and AI integrations. Data driven solutions tailored to your needs.
+          Consult with us to explore how we can bring your vision to life with cutting-edge technology and design expertise.
         </p>
       </div>
 
       <div class="video-wrapper">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/jwBoB05HJKQ?autoplay=0&loop=1&playlist=jwBoB05HJKQ&controls=1&modestbranding=1&rel=0&iv_load_policy=3&cachebust=1"
-          title="YouTube video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          src="https://www.youtube-nocookie.com/embed/jwBoB05HJKQ?autoplay=0&loop=1&playlist=jwBoB05HJKQ&controls=1&modestbranding=1&rel=0&iv_load_policy=3"
+          title="PageoNix Platform Demo"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
         </iframe>
-
-
       </div>
-
-
     </div>
   </section>
 
