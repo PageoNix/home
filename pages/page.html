@@ -115,329 +115,7 @@
       --nav-height: 68px;
     }
 
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      position: relative;
-
-      /* offset page content to account for fixed nav */
-      padding-top: var(--nav-height);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(108, 99, 255, .25), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(255, 107, 107, .18), transparent 55%);
-      background-attachment: fixed;
-    }
-
-    /* ====== Nav ====== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--nav-height);
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(15, 18, 34, .88), rgba(15, 18, 34, .6));
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-    }
-
-    .nav-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      height: 100%;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    /* 🟢 Bigger logo */
-    .brand svg {
-      width: 52px;
-      height: 52px;
-    }
-
-    /* 🟢 Bigger and bolder brand name */
-    .brand span {
-      font-weight: 900;
-      letter-spacing: 0.3px;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .nav-links {
-      margin-left: auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .cta-btn {
-      margin-left: 10px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), #8e88ff);
-      color: white;
-      font-weight: 700;
-      border: 0;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(108, 99, 255, .45);
-      transition: transform 0.2s ease;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    /* ====== Hero ====== */
-    .hero {
-      position: relative;
-      overflow: visible;
-      isolation: isolate
-    }
-
-    .hero-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: clamp(40px, 8vw, 50px) clamp(16px, 4vw, 24px) clamp(32px, 6vw, 16px);
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: clamp(24px, 4vw, 40px);
-      align-items: center;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      background: linear-gradient(90deg, rgba(108, 99, 255, .14), rgba(0, 245, 225, .03));
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: .85rem;
-      margin-bottom: 12px
-    }
-
-    .headline {
-      font-size: clamp(3.2rem, 5vw, 3.6rem);
-      line-height: 1.1;
-      font-weight: 900;
-      letter-spacing: -.02em;
-      margin: 0 0 12px;
-      color: var(--text)
-    }
-
-    .headline .accent {
-      background: linear-gradient(90deg, var(--primary), #00f5e1, #8e88ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      padding: 16px;
-      background-size: 200% 100%;
-      animation: hueShift 6s ease-in-out infinite;
-      display: inline-block;
-    }
-
-    @keyframes hueShift {
-      0% {
-        background-position: 0%
-      }
-
-      50% {
-        background-position: 100%
-      }
-
-      100% {
-        background-position: 0%
-      }
-    }
-
-    /* ====== Video Section (Improved Responsive Layout) ====== */
-    .video-section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 24px);
-    }
-
-    .video-container {
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: clamp(24px, 4vw, 40px);
-      align-items: center;
-      padding: clamp(20px, 4vw, 40px) 0;
-    }
-
-    .video-text {
-      flex: 1 1 200px;
-      text-align: left;
-    }
-
-    .video-text h2 {
-      text-align: left;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      margin-bottom: 10px;
-    }
-
-    .video-text p {
-      text-align: left;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 500px;
-    }
-
-    /* video container */
-    .video-wrapper {
-      flex: 1 1 200px;
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.2);
-      aspect-ratio: 16 / 9;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 18px;
-      display: block;
-    }
-
-    /* ===== Responsive Design ===== */
-    @media (max-width: 1024px) {
-      .hero-right {
-        max-width: 600px;
-        margin: 0 auto;
-      }
-      
-      .video-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .video-text {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-section {
-        padding: 40px 16px;
-      }
-
-      .video-wrapper {
-        border-radius: 14px;
-        box-shadow: 0 10px 40px rgba(108, 99, 255, 0.15);
-      }
-
-      .hero-benefits {
-        padding: 16px;
-      }
-      
-      .benefit-item {
-        gap: 10px;
-      }
-      
-      .benefit-icon {
-        width: 28px;
-        height: 28px;
-      }
-
-      /* Hide chat logo in mobile view */
-      .chat-header svg {
-        display: none !important;
-      }
-      .chat-header .chat-close {
-        right: 12px;
-      }
-    }
-
-    /* Close button styles */
-    .chat-close {
-      margin-left: auto;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 0 8px;
-      transition: color 0.2s;
-    }
-    .chat-close:hover {
-      color: var(--accent);
-    }
-
-    /* Loading animation for AI response */
-    .loading-spinner {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      border: 3px solid rgba(108,99,255,0.18);
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    .message.loading {
-      color: var(--muted);
-      font-style: italic;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: none;
-      box-shadow: none;
-      padding-left: 0;
-    }
+    
 
     * {
       box-sizing: border-box
@@ -620,7 +298,7 @@
     .video-section {
       max-width: 1400px;
       margin: 0 auto;
-      padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 24px);
+      padding: clamp(2px, 2vw, 5px) clamp(16px, 4vw, 24px);
     }
 
     .video-container {
@@ -671,7 +349,7 @@
     }
 
     /* ===== Responsive Design ===== */
-    @media (max-width: 1024px) {
+    @media (max-width: 700px) {
       .hero-right {
         max-width: 600px;
         margin: 0 auto;
@@ -1170,7 +848,7 @@
     }
 
     /* ====== Responsive tweaks ====== */
-    @media (max-width: 1024px) {
+    @media (max-width: 700px) {
       .hero-inner {
         grid-template-columns: 1fr
       }
@@ -1271,14 +949,21 @@
       border-radius: 12px;
       align-items: center;
     }
-
+    @media (max-width: 700px) {
+      .waitlist-panel {
+        max-width: 100%;
+        padding: 10px 70px;
+        gap: 30px;
+        align-items: stretch;
+      }
+    }
     .waitlist-panel .count {
       font-weight: 900;
       font-size: 1.6rem;
       color: #fff;
       min-width: 72px;
       text-align: center;
-      background: linear-gradient(90deg, var(--primary), #00f5e1);
+      background: rgb(65, 255, 65);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -1313,7 +998,7 @@
 
     @media (max-width: 900px) {
       .waitlist-panel {
-        gap: 8px;
+        gap: 20px;
         align-items: flex-start;
       }
 
@@ -1326,11 +1011,23 @@
         width: 100%;
       }
     }
+    @media (max-width: 480px) {
+      .waitlist-panel {
+        
+        align-items: stretch;
+        padding: 10px 30px;
+      }
 
+      .waitlist-form {
+        
+        gap: 12px;
+      }
+    }
     /* Add new hero right section styles */
     .hero-right {
       display: flex;
       flex-direction: column;
+      max-width: 100%;
       gap: 24px;
     }
 
@@ -1339,6 +1036,7 @@
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 16px;
       padding: 20px;
+      max-width: 100%;
     }
 
     .benefit-item {
@@ -1353,8 +1051,8 @@
     }
 
     .benefit-icon {
-      width: 32px;
-      height: 32px;
+      width: 320px;
+      height: 320px;
       display: grid;
       place-items: center;
       border-radius: 8px;
@@ -1552,7 +1250,24 @@
     </div>
 
     <div class="hero-right">
-      <div class="waitlist-panel">
+      
+
+      <div class="hero-benefits">
+        <h1>Beta Access</h1>
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Priority access to beta features.</div>
+        </div>
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Free call with our engineer</div>
+        </div>
+        <div class="benefit-item">
+          
+          <div class="benefit-text">Dedicated launch assistance</div>
+          
+        </div>
+        <div class="waitlist-panel">
         <div>
           <div class="count" id="preRegCout">1.2k+</div>
           <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
@@ -1565,20 +1280,6 @@
           </a>
         </button>
       </div>
-
-      <div class="hero-benefits">
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Priority access to beta features.</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Free call with our engineer</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Dedicated launch assistance</div>
-        </div>
       </div>
     </div>
   </div>
@@ -1600,12 +1301,7 @@
       </div>
 
       <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/jwBoB05HJKQ?autoplay=0&loop=1&playlist=jwBoB05HJKQ&controls=1&modestbranding=1&rel=0&iv_load_policy=3"
-          title="PageoNix Platform Demo"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/8hgzJ-7XK0E" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -1852,6 +1548,7 @@
     </div>
   </section>
 
+    
 
   <!-- ===== FAQ ===== -->
   <section id="faq" class="section">
