@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Track Request | PageoNix</title>
+<style>
+  :root {
+    --primary: #0d6efd;
+    --bg: #f5f7fb;
+    --card: #fff;
+    --text: #222;
+    --muted: #6c757d;
+    --success: #d1f7c4;
+    --danger: #ffe5e5;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    padding: 40px;
+  }
+
+  .card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  h2 {
+    color: var(--primary);
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  button {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.2s;
+  }
+  button:hover { opacity: 0.9; }
+
+  .status-banner {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #155724;
+    background: var(--success);
+    border: 1px solid #c3e6cb;
+  }
+
+  .status-banner.danger {
+    background: var(--danger);
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+
+  .status-header {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  .timeline {
+    margin-top: 30px;
+    position: relative;
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    background: #e0e0e0;
+    border-radius: 10px;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 22px;
+  }
+
+  .step:last-child {
+    margin-bottom: 0;
+  }
+
+  .checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .checkbox:checked {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .checkbox:checked::after {
+    content: "";
+    position: absolute;
+    top: 4px; left: 4px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .step-label {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .note {
+    background: #f0f8ff;
+    color: #004085;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid #b8daff;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>Track Your Request</h2>
+  <form id="trackForm">
+    <input type="text" name="token" placeholder="Enter your tracking token" required>
+    <button type="submit">Track</button>
+  </form>
+  <div id="result"></div>
+</div>
+
+<script>
+function formatDateTime(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  const day = d.getDate();
+  const suffix = (day % 10 === 1 && day !== 11) ? "st" :
+                 (day % 10 === 2 && day !== 12) ? "nd" :
+                 (day % 10 === 3 && day !== 13) ? "rd" : "th";
+  const month = d.toLocaleString('default', { month: 'long' });
+  const time = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  return `${day}${suffix} ${month}, ${time}`;
+}
+
+document.getElementById('trackForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const token = e.target.token.value.trim();
+  const res = await fetch(`https://backend-first-cpf8.onrender.com/pageonix/track/${token}`);
+  const data = await res.json();
+  const container = document.getElementById('result');
+  container.innerHTML = "";
+
+  if (data.status !== 'success') {
+    container.innerHTML = `<p style='color:red;text-align:center;font-weight:600;'>${data.message}</p>`;
+    return;
+  }
+
+  const d = data.data;
+  const steps = ['under process','previewed','meeting scheduled','accepted'];
+
+  // Find index for current status
+  const currentIndex = steps.indexOf(d.status);
+  let timelineHTML = '<div class="timeline">';
+  steps.forEach((s, i)=>{
+    timelineHTML += `
+      <div class="step">
+        <input type="checkbox" class="checkbox" ${i <= currentIndex ? 'checked' : ''} disabled>
+        <span class="step-label">${s}</span>
+      </div>
+    `;
+  });
+  timelineHTML += '</div>';
+
+  // Determine banner style and message
+  let bannerHTML = '';
+  if (d.status === 'meeting scheduled' && d.meeting_time) {
+    bannerHTML = `<div class="status-banner">Meeting scheduled on <b>${formatDateTime(d.meeting_time)}</b>. Please be prepared!</div>`;
+  } else if (d.status === 'accepted') {
+    bannerHTML = `<div class="status-banner">Your project has been <b>accepted</b>! Our team will reach out shortly.</div>`;
+  } else if (d.status === 'rejected' && d.reject_reason) {
+    bannerHTML = `<div class="status-banner danger">Request <b>rejected</b>: ${d.reject_reason}</div>`;
+  }
+
+  container.innerHTML = `
+    <div class="status-header">${d.status.toUpperCase()}</div>
+    ${timelineHTML}
+    ${bannerHTML}
+  `;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Request | PageoNix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root {
+    --primary: #0d6efd;
+    --bg: #f5f7fb;
+    --card: #fff;
+    --muted: #6c757d;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 750px;
+    margin: auto;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 35px 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  h2 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .top-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+  }
+
+  .top-actions a {
+    background: var(--primary);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  label {
+    font-weight: 600;
+    display: block;
+    margin-top: 14px;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 6px;
+    font-size: 1rem;
+  }
+
+  button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .grid label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background: #f9fafb;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .grid label:hover {
+    background: #eef4ff;
+    border-color: var(--primary);
+  }
+
+  .grid input[type="checkbox"] {
+    transform: scale(1.2);
+  }
+
+  #message {
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .back-btn {
+    background: #6c757d;
+  }
+
+  .highlight {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+
+    input, textarea, select {
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-actions">
+      <a href="track.html">Track Request</a>
+    </div>
+
+    <h2>Submit New Request</h2>
+
+    <form id="requestForm" method="POST" action="https://backend-first-cpf8.onrender.com/pageonix/submit">
+      <!-- STEP 1 -->
+      <div id="step1">
+        <label>What kind of website or project do you want?</label>
+        <select name="project_type" id="projectType" required>
+          <option value="">-- Select Type --</option>
+          <option value="Personal Portfolio">Personal Portfolio</option>
+          <option value="Business Website">Business / Corporate Site</option>
+          <option value="Modify/Extend Current Project">Modify/Extend Current Project</option>
+          <option value="Home Business Landing page">Home Business Landing page</option>
+          <option value="E-commerce Store">E-commerce Store</option>
+          <option value="Blog / Magazine">Blog or Magazine</option>
+          <option value="SaaS Platform">SaaS Platform</option>
+          <option value="Landing Page">Landing Page</option>
+          <option value="Web App / Dashboard">Web App / Admin Panel</option>
+          <option value="Educational Platform">Educational Platform</option>
+          <option value="Non-profit / NGO Site">Non-profit / NGO Site</option>
+          <option value="Custom Project">Custom Project</option>
+          
+        </select>
+        <button type="button" id="next1" disabled onclick="nextStep(2)">Next</button>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="step2" class="hidden">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+        <label>Company / Organization</label>
+        <input type="text" name="company">
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <label>Contact Number</label>
+        <input type="text" name="contact" required>
+        <button type="button" onclick="nextStep(3)">Next</button>
+        <button type="button" class="back-btn" onclick="prevStep(1)">Back</button>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="step3" class="hidden">
+        <label>Project Title</label>
+        <input type="text" name="project_title" required>
+        <label>Project Overview</label>
+        <textarea name="overview" rows="4" required></textarea>
+        <button type="button" onclick="nextStep(4)">Next</button>
+        <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
+      </div>
+
+      <!-- STEP 4 -->
+      <div id="step4" class="hidden">
+        <label>Preferred Technologies (select multiple)</label>
+        <div class="grid" id="techOptions"></div>
+        <button type="button" onclick="nextStep(5)">Next</button>
+        <button type="button" class="back-btn" onclick="prevStep(3)">Back</button>
+      </div>
+
+      <!-- STEP 5 -->
+      <div id="step5" class="hidden">
+        <label>Deliverables Required</label>
+        <div class="grid">
+          <label><input type="checkbox" name="deliverables[]" value="Design"> Design</label>
+          <label><input type="checkbox" name="deliverables[]" value="Development"> Development</label>
+          <label><input type="checkbox" name="deliverables[]" value="SEO"> SEO</label>
+          <label><input type="checkbox" name="deliverables[]" value="Maintenance"> Maintenance</label>
+          <label><input type="checkbox" name="deliverables[]" value="Hosting Setup"> Hosting Setup</label>
+          <label><input type="checkbox" name="deliverables[]" value="UI/UX Review"> UI/UX Review</label>
+        </div>
+
+        <label>Estimated Budget (USD)</label>
+        <input type="number" name="budget" required>
+
+        <label><input type="checkbox" name="agreement" required> I confirm all details are accurate.</label>
+
+        <button type="submit">Submit Application</button>
+        <button type="button" class="back-btn" onclick="prevStep(4)">Back</button>
+      </div>
+
+      <div id="message"></div>
+    </form>
+  </div>
+
+<script>
+const techStacks = [
+  "HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue.js", "Angular", "Svelte",
+  "Next.js", "Nuxt.js", "Node.js", "Express.js", "NestJS", "FastAPI", "Django",
+  "Flask", "Ruby on Rails", "Laravel", "Spring Boot", "ASP.NET Core", "GoLang",
+  "C#", "Python", "Java", "Kotlin", "PHP", "Rust", "C++", "React Native",
+  "Flutter", "Ionic", "Electron", "Firebase", "Supabase", "MongoDB", "MySQL",
+  "PostgreSQL", "Redis", "Elasticsearch", "Docker", "Kubernetes", "AWS", "GCP",
+  "Azure", "Vercel", "Netlify", "Tailwind CSS", "Bootstrap", "Material UI",
+  "GraphQL", "Prisma", "Strapi", "WordPress", "Shopify", "Wix", "Webflow"
+];
+
+function populateTechOptions() {
+  const container = document.getElementById('techOptions');
+  techStacks.forEach(t => {
+    const label = document.createElement('label');
+    label.innerHTML = `<input type="checkbox" name="tech[]" value="${t}"> ${t}`;
+    container.appendChild(label);
+  });
+}
+populateTechOptions();
+
+function nextStep(step) {
+  document.querySelectorAll('[id^="step"]').forEach(s => s.classList.add('hidden'));
+  document.getElementById('step' + step).classList.remove('hidden');
+}
+function prevStep(step) {
+  document.querySelectorAll('[id^="step"]').forEach(s => s.classList.add('hidden'));
+  document.getElementById('step' + step).classList.remove('hidden');
+}
+
+// Disable Next until project type selected
+const projectTypeSelect = document.getElementById('projectType');
+projectTypeSelect.addEventListener('change', () => {
+  document.getElementById('next1').disabled = projectTypeSelect.value === '';
+});
+
+document.getElementById('requestForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const msg = document.getElementById('message');
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+  msg.innerText = "";
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+    const data = await res.json();
+    if (data.status === "success") {
+      msg.style.color = "#0d6efd";
+      msg.innerHTML = `
+        <div style="background:#e9f5ff;border-radius:8px;padding:16px;line-height:1.6;">
+          ${data.message}<br>
+          <b>Tracking Token:</b> ${data.token}<br><br>
+          📧 We've also sent a confirmation email — please check your inbox.<br>
+          <span class="highlight">⚠️If you can’t find it, check your spam folder.</span><br>
+          Our team is actively working to fix the spam issue. -Team PageoNix
+        </div>`;
+      form.reset();
+      nextStep(1);
+      document.getElementById('next1').disabled = true;
+    } else {
+      msg.style.color = "red";
+      msg.innerText = data.message;
+    }
+  } catch (err) {
+    msg.style.color = "red";
+    msg.innerText = "Network error. Please try again.";
+  }
+  btn.disabled = false;
+  btn.innerText = "Submit Application";
+});
+</script>
+</body>
+</html>
