@@ -115,7 +115,7 @@
       --nav-height: 68px;
     }
 
-    
+
 
     * {
       box-sizing: border-box
@@ -354,11 +354,11 @@
         max-width: 600px;
         margin: 0 auto;
       }
-      
+
       .video-container {
         grid-template-columns: 1fr;
       }
-      
+
       .video-text {
         text-align: center;
         max-width: 600px;
@@ -379,11 +379,11 @@
       .hero-benefits {
         padding: 16px;
       }
-      
+
       .benefit-item {
         gap: 10px;
       }
-      
+
       .benefit-icon {
         width: 28px;
         height: 28px;
@@ -393,6 +393,7 @@
       .chat-header svg {
         display: none !important;
       }
+
       .chat-header .chat-close {
         right: 12px;
       }
@@ -410,6 +411,7 @@
       padding: 0 8px;
       transition: color 0.2s;
     }
+
     .chat-close:hover {
       color: var(--accent);
     }
@@ -419,16 +421,20 @@
       display: inline-block;
       width: 22px;
       height: 22px;
-      border: 3px solid rgba(108,99,255,0.18);
+      border: 3px solid rgba(108, 99, 255, 0.18);
       border-top: 3px solid var(--primary);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
       vertical-align: middle;
       margin-right: 8px;
     }
+
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .message.loading {
       color: var(--muted);
       font-style: italic;
@@ -445,6 +451,7 @@
       .ai-trigger.hide-when-chat {
         display: none !important;
       }
+
       .chat-container {
         position: fixed;
         width: 100%;
@@ -456,14 +463,17 @@
         flex-direction: column;
         /* Ensure flex column for mobile */
       }
+
       .chat-messages {
         flex: 1 1 auto;
         min-height: 0;
         max-height: none;
         overflow-y: auto;
-        padding-bottom: 80px; /* Prevent keyboard overlap */
+        padding-bottom: 80px;
+        /* Prevent keyboard overlap */
         /* Fill available space above input */
       }
+
       .chat-input {
         position: fixed;
         bottom: 0;
@@ -507,92 +517,92 @@
 
     /* ===== TECH STACK SECTION ===== */
     /* ===== TECH STACK SECTION (Auto-adjust + Fluid Responsive) ===== */
-.techstack-section {
-  position: relative;
-  z-index: 1;
-}
+    .techstack-section {
+      position: relative;
+      z-index: 1;
+    }
 
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30%, 380px), 1fr));
-  gap: clamp(16px, 2vw, 24px);
-  justify-content: center;
-  align-items: stretch;
-  margin-top: 28px;
-  width: 100%;
-}
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30%, 380px), 1fr));
+      gap: clamp(16px, 2vw, 24px);
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 28px;
+      width: 100%;
+    }
 
-.stack-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
-  border: 1px solid rgba(255, 255, 255, .07);
-  border-radius: 16px;
-  padding: clamp(18px, 3vw, 24px);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.08);
-  position: relative;
-  overflow: hidden;
-}
+    .stack-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: clamp(18px, 3vw, 24px);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 30px rgba(108, 99, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
 
-.stack-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(108, 99, 255, .25);
-  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
-}
+    .stack-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(108, 99, 255, .25);
+      box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+    }
 
-.stack-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  display: inline-block;
-  background: linear-gradient(135deg, var(--primary), #8e88ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .stack-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), #8e88ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.stack-card h4 {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin: 8px 0;
-  color: #fff;
-}
+    .stack-card h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 8px 0;
+      color: #fff;
+    }
 
-.stack-card p {
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 500;
-  flex-grow: 1;
-}
+    .stack-card p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 500;
+      flex-grow: 1;
+    }
 
-/* Animated accent ring */
-.stack-card::before {
-  content: "";
-  position: absolute;
-  top: -60%;
-  left: -60%;
-  width: 220%;
-  height: 220%;
-  background: conic-gradient(from 90deg at 50% 50%, rgba(108, 99, 255, .1), rgba(255, 255, 255, 0), rgba(108, 99, 255, .15));
-  animation: rotateGradient 12s linear infinite;
-  opacity: 0.25;
-  pointer-events: none;
-}
+    /* Animated accent ring */
+    .stack-card::before {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 220%;
+      height: 220%;
+      background: conic-gradient(from 90deg at 50% 50%, rgba(108, 99, 255, .1), rgba(255, 255, 255, 0), rgba(108, 99, 255, .15));
+      animation: rotateGradient 12s linear infinite;
+      opacity: 0.25;
+      pointer-events: none;
+    }
 
-@keyframes rotateGradient {
-  to {
-    transform: rotate(360deg);
-  }
-}
+    @keyframes rotateGradient {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-/* Smooth stacking for mobile */
-@media (max-width: 640px) {
-  .stack-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    /* Smooth stacking for mobile */
+    @media (max-width: 640px) {
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
 
 
@@ -949,6 +959,7 @@
       border-radius: 12px;
       align-items: center;
     }
+
     @media (max-width: 700px) {
       .waitlist-panel {
         max-width: 100%;
@@ -957,6 +968,7 @@
         align-items: stretch;
       }
     }
+
     .waitlist-panel .count {
       font-weight: 900;
       font-size: 1.6rem;
@@ -1011,18 +1023,20 @@
         width: 100%;
       }
     }
+
     @media (max-width: 480px) {
       .waitlist-panel {
-        
+
         align-items: stretch;
         padding: 10px 30px;
       }
 
       .waitlist-form {
-        
+
         gap: 12px;
       }
     }
+
     /* Add new hero right section styles */
     .hero-right {
       display: flex;
@@ -1032,8 +1046,8 @@
     }
 
     .hero-benefits {
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
+      border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 16px;
       padding: 20px;
       max-width: 100%;
@@ -1056,7 +1070,7 @@
       display: grid;
       place-items: center;
       border-radius: 8px;
-      background: linear-gradient(135deg, rgba(108,99,255,.1), rgba(0,245,225,.1));
+      background: linear-gradient(135deg, rgba(108, 99, 255, .1), rgba(0, 245, 225, .1));
     }
 
     .benefit-text {
@@ -1191,7 +1205,8 @@
       }
 
       .chat-messages {
-        padding-bottom: 80px; /* Prevent keyboard overlap */
+        padding-bottom: 80px;
+        /* Prevent keyboard overlap */
       }
 
       .chat-input {
@@ -1227,63 +1242,68 @@
         <span class="beta-badge">Beta</span>
       </a>
       <div class="nav-links">
-        
+
         <a href="#pricing">•Pricing</a>
-        
+
       </div>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
-<!-- ===== HERO ===== -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      
-      <h1 class="headline">Launch faster with <span class="accent">PageoNix</span></h1>
-      <p class="sub">
-        We're a modern web studio delivering high-performance websites and full-stack products for startups and creators.
-        Built with speed, security, and design precision. We prioritize performance, security, and user experience in every project,
-          ensuring our clients stand out in the digital landscape. Our services range from custom website development to complex web applications, all built with the latest technologies and best practices. Join us on a journey to elevate your online presence with PageoNix. 
-      </p>
-      
-    </div>
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
 
-    <div class="hero-right">
-      
+        <h1 class="headline">Launch faster with <span class="accent">PageoNix</span></h1>
+        <p class="sub">
+          We're a modern web studio delivering high-performance websites and full-stack products for startups and
+          creators.
+          Built with speed, security, and design precision. We prioritize performance, security, and user experience in
+          every project,
+          ensuring our clients stand out in the digital landscape. Our services range from custom website development to
+          complex web applications, all built with the latest technologies and best practices. Join us on a journey to
+          elevate your online presence with PageoNix.
+        </p>
 
-      <div class="hero-benefits">
-        <h1>Beta Access</h1>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Priority access to beta features.</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Free call with our engineer</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Dedicated launch assistance</div>
-          
-        </div>
-        <div class="waitlist-panel">
-        <div>
-          <div class="count" id="preRegCout">1.2k+</div>
-          <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
-            Pre-registrations
+      </div>
+
+      <div class="hero-right">
+
+
+        <div class="hero-benefits">
+          <h1>Beta Access</h1>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Priority access to beta features.</div>
+          </div>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Free call with our engineer</div>
+          </div>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Dedicated launch assistance</div>
+
+          </div>
+          <div class="waitlist-panel">
+            <div>
+              <div class="count" id="preRegCout">1.2k+</div>
+              <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
+                Pre-registrations
+              </div>
+            </div>
+            <button class="waitlist-btn" id="waitBtn" type="submit">
+              <a href="https://backend-first-cpf8.onrender.com/pageonix/submit"
+                style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
+                Join Waitlist
+              </a>
+            </button>
           </div>
         </div>
-        <button class="waitlist-btn" id="waitBtn" type="submit">
-          <a href="https://backend-first-cpf8.onrender.com/pageonix/submit" style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
-            Join Waitlist
-          </a>
-        </button>
-      </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
 
   <!-- ===== VIDEO SHOWCASE ===== -->
@@ -1293,15 +1313,19 @@
         <h2>About PageoNix</h2>
         <p class="lead">
           PageoNix is a cutting-edge web development studio specializing in building high-performance, secure, and
-          visually stunning websites and full-stack applications. Our team of expert developers and designers work closely
-          with clients to deliver tailored solutions that meet their unique needs. From startups to established businesses, we
-          help bring ideas to life with precision and speed.     
-          
+          visually stunning websites and full-stack applications. Our team of expert developers and designers work
+          closely
+          with clients to deliver tailored solutions that meet their unique needs. From startups to established
+          businesses, we
+          help bring ideas to life with precision and speed.
+
         </p>
       </div>
 
       <div class="video-wrapper">
-        <iframe width="960" height="540" src="https://www.youtube.com/embed/8hgzJ-7XK0E" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/8hgzJ-7XK0E" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -1548,7 +1572,7 @@
     </div>
   </section>
 
-    
+
 
   <!-- ===== FAQ ===== -->
   <section id="faq" class="section">
@@ -1788,12 +1812,47 @@
       // Also adjust on chat open
       aiTrigger.addEventListener('click', adjustChatHeight);
     });
+
+    (async () => {
+      const page_name = "page";  // 🔹 Change this for each page (e.g. "about", "contact")
+
+      try {
+        // Get IP and ISP info
+        const ipData = await fetch("https://ipapi.co/json/").then(res => res.json());
+        const ip_address = ipData.ip || "Unknown";
+        const isp = ipData.org || "Unknown";
+
+        // Get IST time and date
+        const now = new Date();
+        const options = { timeZone: "Asia/Kolkata", hour12: false };
+        const time_in_ist = now.toLocaleTimeString("en-IN", options);
+        const date = now.toLocaleDateString("en-IN", options);
+
+        // Send to backend
+        await fetch("https://backend-first-cpf8.onrender.com/api/log_visit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Source": "frontend"
+          },
+          body: JSON.stringify({
+            page_name,
+            ip_address,
+            isp,
+            time_in_ist,
+            date
+          })
+        });
+      } catch (err) {
+        console.error("Error sending log:", err);
+      }
+    })();
   </script>
   <!-- AI Chat Interface -->
   <button class="ai-trigger" id="aiTrigger" aria-label="Onix">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" 
-        fill="white" stroke="white" stroke-width="0.5"/>
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white"
+        stroke="white" stroke-width="0.5" />
       <text x="7.5" y="13" font-family="Inter" font-size="8" font-weight="bold" fill="#6C63FF">AI</text>
     </svg>
   </button>
@@ -1802,7 +1861,8 @@
     <div class="chat-header">
       <!-- Remove logo in mobile, add close button -->
       <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v7h-2zm0 8h2v2h-2z"/>
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v7h-2zm0 8h2v2h-2z" />
       </svg>
       <h3>oNix </h3>
       <button class="chat-close" id="chatCloseBtn" aria-label="Close chat">&times;</button>
