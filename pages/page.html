@@ -1812,40 +1812,7 @@
       aiTrigger.addEventListener('click', adjustChatHeight);
     });
 
-    (async () => {
-      const page_name = "landing_page";  // 🔹 Change this for each page (e.g. "about", "contact")
-
-      try {
-        // Get IP and ISP info
-        const ipData = await fetch("https://ipapi.co/json/").then(res => res.json());
-        const ip_address = ipData.ip || "Unknown";
-        const isp = ipData.org || "Unknown";
-
-        // Get IST time and date
-        const now = new Date();
-        const options = { timeZone: "Asia/Kolkata", hour12: false };
-        const time_in_ist = now.toLocaleTimeString("en-IN", options);
-        const date = now.toLocaleDateString("en-IN", options);
-
-        // Send to backend
-        await fetch("https://backend-first-cpf8.onrender.com/api/log_visit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-API-Source": "frontend"
-          },
-          body: JSON.stringify({
-            page_name,
-            ip_address,
-            isp,
-            time_in_ist,
-            date
-          })
-        });
-      } catch (err) {
-        console.error("Error sending log:", err);
-      }
-    })();
+    
   </script>
   <!-- AI Chat Interface -->
   <button class="ai-trigger" id="aiTrigger" aria-label="Onix">
