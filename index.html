@@ -573,6 +573,51 @@
                 });
             });
         });
+
+        (function () {
+
+    // Prevent bot / crawler spam
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("bot") || ua.includes("crawl") || ua.includes("spider")) {
+        return; // no tracking for bots
+    }
+
+    function getQuerySource() {
+        const params = new URLSearchParams(window.location.search);
+
+        return (
+            params.get("source") ||
+            params.get("ref") ||
+            params.get("utm") ||
+            params.get("from") ||
+            "direct"
+        );
+    }
+
+    function sendTrack() {
+
+        // FIXED: optional chaining removed
+        const page = (document.title ? document.title.trim() : "") || window.location.pathname;
+
+        const payload = {
+            page_name: page,
+            source: getQuerySource()
+        };
+
+        fetch("https://backend-first-cpf8.onrender.com/api/xtrack-register-visit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        }).catch(err => console.warn("Track failed:", err));
+    }
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        sendTrack();
+    } else {
+        document.addEventListener("DOMContentLoaded", sendTrack);
+    }
+
+})();
     </script>
 </body>
 

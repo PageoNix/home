@@ -1271,38 +1271,39 @@
       <div class="hero-right">
 
 
-      <div class="hero-benefits">
-        <h1>Get Live With Us!</h1>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Priority access to beta features.</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Free call with our engineer</div>
-        </div>
-        <div class="benefit-item">
-          
-          <div class="benefit-text">Dedicated launch assistance</div>
-          
-        </div>
-        <div class="waitlist-panel">
-        <div>
-          <div class="count" id="preRegCout">1.2k+</div>
-          <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
-            Requested Projects
+        <div class="hero-benefits">
+          <h1>Get Live With Us!</h1>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Priority access to beta features.</div>
+          </div>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Free call with our engineer</div>
+          </div>
+          <div class="benefit-item">
+
+            <div class="benefit-text">Dedicated launch assistance</div>
+
+          </div>
+          <div class="waitlist-panel">
+            <div>
+              <div class="count" id="preRegCout">1.2k+</div>
+              <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
+                Requested Projects
+              </div>
+            </div>
+            <button class="waitlist-btn" id="waitBtn" type="submit">
+              <a href="https://backend-first-cpf8.onrender.com/pageonix/login"
+                style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
+                Start Now
+              </a>
+            </button>
           </div>
         </div>
-        <button class="waitlist-btn" id="waitBtn" type="submit">
-          <a href="https://backend-first-cpf8.onrender.com/pageonix/login" style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
-            Start Now
-          </a>
-        </button>
-      </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
 
   <!-- ===== VIDEO SHOWCASE ===== -->
@@ -1812,7 +1813,52 @@
       aiTrigger.addEventListener('click', adjustChatHeight);
     });
 
-    
+    (function () {
+
+      // Prevent bot / crawler spam
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.includes("bot") || ua.includes("crawl") || ua.includes("spider")) {
+        return; // no tracking for bots
+      }
+
+      function getQuerySource() {
+        const params = new URLSearchParams(window.location.search);
+
+        return (
+          params.get("source") ||
+          params.get("ref") ||
+          params.get("utm") ||
+          params.get("from") ||
+          "direct"
+        );
+      }
+
+      function sendTrack() {
+
+        // FIXED: optional chaining removed
+        const page = (document.title ? document.title.trim() : "") || window.location.pathname;
+
+        const payload = {
+          page_name: page,
+          source: getQuerySource()
+        };
+
+        fetch("https://backend-first-cpf8.onrender.com/api/xtrack-register-visit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(err => console.warn("Track failed:", err));
+      }
+
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+        sendTrack();
+      } else {
+        document.addEventListener("DOMContentLoaded", sendTrack);
+      }
+
+    })();
+
+
   </script>
   <!-- AI Chat Interface -->
   <button class="ai-trigger" id="aiTrigger" aria-label="Onix">
