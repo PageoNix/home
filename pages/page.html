@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-layout="center" data-theme="minimal"
+  data-modules="hero,value,services,why,process,testimonials,pricing,cta">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PageoNix - Premium Web Studio for Lightning-Fast Digital Products</title>
   <!-- Charset & Viewport -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -75,1000 +79,24 @@
     ]
   }
   </script>
-
-</head>
-
-
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#d4af37',
+            warmyellow: '#ffd95a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root {
-      --bg: #0f1222;
-      /* deep night */
-      --card: #14182d;
-      /* panels */
-      --muted: #aab0c6;
-      /* secondary text */
-      --text: #eef1ff;
-      /* primary text */
-      --primary: #6C63FF;
-      /* indigo */
-      --accent: #FF6B6B;
-      /* soft red */
-      --ring: rgba(108, 99, 255, .35);
-      --success: #2ed573;
-      --warning: #ffd166;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-      --glass: rgba(255, 255, 255, .06);
-
-      /* navbar height for fixed positioning */
-      --nav-height: 68px;
-    }
-
-
-
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      position: relative;
-
-      /* offset page content to account for fixed nav */
-      padding-top: var(--nav-height);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(108, 99, 255, .25), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(255, 107, 107, .18), transparent 55%);
-      background-attachment: fixed;
-    }
-
-    /* ====== Nav ====== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--nav-height);
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(15, 18, 34, .88), rgba(15, 18, 34, .6));
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-    }
-
-    .nav-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      height: 100%;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    /* 🟢 Bigger logo */
-    .brand svg {
-      width: 52px;
-      height: 52px;
-    }
-
-    /* 🟢 Bigger and bolder brand name */
-    .brand span {
-      font-weight: 900;
-      letter-spacing: 0.3px;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .nav-links {
-      margin-left: auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .cta-btn {
-      margin-left: 10px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), #8e88ff);
-      color: white;
-      font-weight: 700;
-      border: 0;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(108, 99, 255, .45);
-      transition: transform 0.2s ease;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    /* ====== Hero ====== */
-    .hero {
-      position: relative;
-      overflow: visible;
-      isolation: isolate
-    }
-
-    .hero-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: clamp(40px, 8vw, 50px) clamp(16px, 4vw, 24px) clamp(32px, 6vw, 16px);
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: clamp(24px, 4vw, 40px);
-      align-items: center;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      background: linear-gradient(90deg, rgba(108, 99, 255, .14), rgba(0, 245, 225, .03));
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: .85rem;
-      margin-bottom: 12px
-    }
-
-    .headline {
-      font-size: clamp(3.2rem, 5vw, 3.6rem);
-      line-height: 1.1;
-      font-weight: 900;
-      letter-spacing: -.02em;
-      margin: 0 0 12px;
-      padding-top: 3rem;
-      color: var(--text)
-    }
-
-    .headline .accent {
-      background: linear-gradient(90deg, var(--primary), #00f5e1, #8e88ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      padding: 16px;
-      background-size: 200% 100%;
-      animation: hueShift 6s ease-in-out infinite;
-      display: inline-block;
-    }
-
-    @keyframes hueShift {
-      0% {
-        background-position: 0%
-      }
-
-      50% {
-        background-position: 100%
-      }
-
-      100% {
-        background-position: 0%
-      }
-    }
-
-    /* ====== Video Section (Improved Responsive Layout) ====== */
-    .video-section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: clamp(2px, 2vw, 5px) clamp(16px, 4vw, 24px);
-    }
-
-    .video-container {
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: clamp(24px, 4vw, 40px);
-      align-items: center;
-      padding: clamp(20px, 4vw, 40px) 0;
-    }
-
-    .video-text {
-      flex: 1 1 200px;
-      text-align: left;
-    }
-
-    .video-text h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      margin-bottom: 10px;
-    }
-
-    .video-text p {
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 500px;
-    }
-
-    /* video container */
-    .video-wrapper {
-      flex: 1 1 200px;
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.2);
-      aspect-ratio: 16 / 9;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 18px;
-      display: block;
-    }
-
-    /* ===== Responsive Design ===== */
-    @media (max-width: 700px) {
-      .hero-right {
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .video-container {
-        grid-template-columns: 1fr;
-      }
-
-      .video-text {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-section {
-        padding: 40px 16px;
-      }
-
-      .video-wrapper {
-        border-radius: 14px;
-        box-shadow: 0 10px 40px rgba(108, 99, 255, 0.15);
-      }
-
-      .hero-benefits {
-        padding: 16px;
-      }
-
-      .benefit-item {
-        gap: 10px;
-      }
-
-      .benefit-icon {
-        width: 28px;
-        height: 28px;
-      }
-
-      /* Hide chat logo in mobile view */
-      .chat-header svg {
-        display: none !important;
-      }
-
-      .chat-header .chat-close {
-        right: 12px;
-      }
-    }
-
-    /* Close button styles */
-    .chat-close {
-      margin-left: auto;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 0 8px;
-      transition: color 0.2s;
-    }
-
-    .chat-close:hover {
-      color: var(--accent);
-    }
-
-    /* Loading animation for AI response */
-    .loading-spinner {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      border: 3px solid rgba(108, 99, 255, 0.18);
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .message.loading {
-      color: var(--muted);
-      font-style: italic;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: none;
-      box-shadow: none;
-      padding-left: 0;
-    }
-
-    /* Hide chat trigger button when chat is open on mobile */
-    @media (max-width: 640px) {
-      .ai-trigger.hide-when-chat {
-        display: none !important;
-      }
-
-      .chat-container {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
-        display: none;
-        flex-direction: column;
-        /* Ensure flex column for mobile */
-      }
-
-      .chat-messages {
-        flex: 1 1 auto;
-        min-height: 0;
-        max-height: none;
-        overflow-y: auto;
-        padding-bottom: 80px;
-        /* Prevent keyboard overlap */
-        /* Fill available space above input */
-      }
-
-      .chat-input {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--card);
-        padding: 12px;
-        z-index: 1001;
-      }
-    }
-
-    /* ====== Stats ====== */
-    .stats {
-      max-width: 1200px;
-      margin: 10px auto 0;
-      padding: 0 20px 40px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 14px;
-      padding: 18px 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat h3 {
-      margin: 0;
-      font-size: 1.8rem
-    }
-
-    .stat p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-weight: 600
-    }
-
-
-    /* ===== TECH STACK SECTION ===== */
-    /* ===== TECH STACK SECTION (Auto-adjust + Fluid Responsive) ===== */
-    .techstack-section {
-      position: relative;
-      z-index: 1;
-    }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30%, 380px), 1fr));
-      gap: clamp(16px, 2vw, 24px);
-      justify-content: center;
-      align-items: stretch;
-      margin-top: 28px;
-      width: 100%;
-    }
-
-    .stack-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: clamp(18px, 3vw, 24px);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 30px rgba(108, 99, 255, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stack-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(108, 99, 255, .25);
-      box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
-    }
-
-    .stack-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      display: inline-block;
-      background: linear-gradient(135deg, var(--primary), #8e88ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .stack-card h4 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin: 8px 0;
-      color: #fff;
-    }
-
-    .stack-card p {
-      color: var(--muted);
-      line-height: 1.6;
-      font-weight: 500;
-      flex-grow: 1;
-    }
-
-    /* Animated accent ring */
-    .stack-card::before {
-      content: "";
-      position: absolute;
-      top: -60%;
-      left: -60%;
-      width: 220%;
-      height: 220%;
-      background: conic-gradient(from 90deg at 50% 50%, rgba(108, 99, 255, .1), rgba(255, 255, 255, 0), rgba(108, 99, 255, .15));
-      animation: rotateGradient 12s linear infinite;
-      opacity: 0.25;
-      pointer-events: none;
-    }
-
-    @keyframes rotateGradient {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Smooth stacking for mobile */
-    @media (max-width: 640px) {
-      .stack-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-
-
-    /* ====== Features ====== */
-    .section {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: clamp(32px, 6vw, 60px) clamp(16px, 4vw, 24px);
-    }
-
-    .section h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      margin: 0 0 8px
-    }
-
-    .section p.lead {
-      color: var(--muted);
-      margin: 0 0 28px
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-      gap: clamp(16px, 2vw, 24px);
-    }
-
-    .feature {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, .07)
-    }
-
-    .icon {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), #8e88ff);
-      margin-bottom: 10px
-    }
-
-    .feature h4 {
-      margin: .2rem 0 .25rem
-    }
-
-    .feature p {
-      color: var(--muted);
-      margin: 0
-    }
-
-    /* ====== Demo Panel ====== */
-    .demo {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items: stretch
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: 20px
-    }
-
-    .panel-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 800;
-      margin: 0 0 12px
-    }
-
-    .code {
-      background: #0b0e1e;
-      border-radius: 12px;
-      padding: 14px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: .88rem;
-      overflow: auto;
-      border: 1px solid rgba(255, 255, 255, .06)
-    }
-
-    .preview {
-      display: grid;
-      gap: 10px
-    }
-
-    .preview .row {
-      display: flex;
-      gap: 10px
-    }
-
-    .input {
-      flex: 1;
-      border-radius: 12px;
-      padding: 12px 12px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .08);
-      color: var(--text)
-    }
-
-    .select {
-      appearance: none
-    }
-
-    .progress {
-      height: 10px;
-      background: rgba(255, 255, 255, .08);
-      border-radius: 10px;
-      overflow: hidden
-    }
-
-    .progress>span {
-      display: block;
-      height: 100%;
-      width: 65%;
-      background: linear-gradient(90deg, var(--accent), #ffa8a8)
-    }
-
-    /* ====== Testimonials ====== */
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px
-    }
-
-    .quote {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 18px
-    }
-
-    .quote p {
-      margin: 0
-    }
-
-    .quote .who {
-      margin-top: 10px;
-      color: var(--muted);
-      font-weight: 700
-    }
-
-    /* ====== Pricing ====== */
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-      gap: clamp(16px, 3vw, 24px);
-    }
-
-    .tier {
-      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 16px;
-      padding: 22px;
-      position: relative
-    }
-
-    .badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: linear-gradient(135deg, var(--primary), #8e88ff);
-      color: white;
-      font-size: .75rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 800
-    }
-
-    .price {
-      font-size: 2rem;
-      font-weight: 900;
-      margin: 8px 0
-    }
-
-    .features-list {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 16px;
-      color: var(--muted)
-    }
-
-    .features-list li {
-      margin: 8px 0;
-      display: flex;
-      gap: 8px;
-      align-items: flex-start
-    }
-
-    .check {
-      color: var(--success);
-      font-weight: 900
-    }
-
-    /* ====== FAQ ====== */
-    .faq {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px
-    }
-
-    details {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 12px;
-      padding: 14px
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 800
-    }
-
-    details p {
-      color: var(--muted)
-    }
-
-    /* ====== Footer ====== */
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, .08);
-      margin-top: 48px
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    .social {
-      display: flex;
-      gap: 10px
-    }
-
-    .social a {
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .08)
-    }
-
-    /* ====== Responsive tweaks ====== */
-    @media (max-width: 700px) {
-      .hero-inner {
-        grid-template-columns: 1fr
-      }
-
-      .demo {
-        grid-template-columns: 1fr
-      }
-
-      .features {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .pricing {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .testimonials {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .faq {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media (max-width: 640px) {
-
-      /* reduce nav height on small screens and adjust body offset */
-      :root {
-        --nav-height: 60px;
-      }
-
-      body {
-        padding-top: var(--nav-height);
-      }
-
-      .nav-inner {
-        padding: 0 16px;
-        gap: 10px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .features,
-      .pricing,
-      .testimonials {
-        grid-template-columns: 1fr
-      }
-
-      .nav-inner {
-        padding: 12px
-      }
-
-      .hero-inner {
-        padding: 0px 16px;
-      }
-
-      .section {
-        padding: 32px 16px
-      }
-
-      .brand svg {
-        width: 28px;
-        height: 28px
-      }
-
-      /* restore for small screens */
-      .brand span {
-        font-size: unset;
-        font-weight: 800
-      }
-    }
-
-    /* waitlist panel + beta badge */
-    .beta-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, rgba(164, 172, 51, 0.389), rgba(221, 245, 0, 0.408));
-      color: rgb(255, 255, 255);
-      font-weight: 800;
-      font-size: .8rem;
-      padding: 6px 8px;
-      border-radius: 999px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    .waitlist-panel {
-      margin-top: 18px;
-      display: inline-flex;
-      max-width: 20rem;
-      gap: 14px;
-      align-items: center;
-      background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01));
-      border: 1px solid rgba(255, 255, 255, .06);
-      padding: 10px 12px;
-      border-radius: 12px;
-      align-items: center;
-    }
-
-    @media (max-width: 700px) {
-      .waitlist-panel {
-        max-width: 100%;
-        padding: 10px 70px;
-        gap: 30px;
-        align-items: stretch;
-      }
-    }
-
-    .waitlist-panel .count {
-      font-weight: 900;
-      font-size: 1.6rem;
-      color: #fff;
-      min-width: 72px;
-      text-align: center;
-      background: rgb(65, 255, 65);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .waitlist-input {
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, .06);
-      background: rgba(255, 255, 255, .02);
-      color: var(--text);
-      outline: none;
-      font-weight: 600;
-    }
-
-    .waitlist-btn {
-      padding: 9px 14px;
-      border-radius: 10px;
-      border: 0;
-      background: linear-gradient(90deg, var(--primary), #8e88ff);
-      color: white;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 8px 30px rgba(108, 99, 255, .12);
-    }
-
-    @media (max-width: 900px) {
-      .waitlist-panel {
-        gap: 20px;
-        align-items: flex-start;
-      }
-
-      .waitlist-form {
-        width: 100%;
-      }
-
-      .waitlist-input {
-        flex: 1;
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .waitlist-panel {
-
-        align-items: stretch;
-        padding: 10px 30px;
-      }
-
-      .waitlist-form {
-
-        gap: 12px;
-      }
-    }
-
-    /* Add new hero right section styles */
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      max-width: 100%;
-      gap: 24px;
-    }
-
-    .hero-benefits {
-      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 16px;
-      padding: 20px;
-      max-width: 100%;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .benefit-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .benefit-icon {
-      width: 320px;
-      height: 320px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgba(108, 99, 255, .1), rgba(0, 245, 225, .1));
-    }
-
-    .benefit-text {
-      font-size: .9rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
     /* AI Chat Interface */
     .ai-trigger {
       position: fixed;
@@ -1145,13 +173,15 @@
     }
 
     .message.user {
-      background: rgba(108, 99, 255, 0.15);
+      background: rgba(216, 255, 59, 0.479);
       margin-left: auto;
+      color: white;
       border-bottom-right-radius: 4px;
     }
 
     .message.ai {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(242, 255, 56, 0.41);
+      color: white;
       margin-right: auto;
       border-bottom-left-radius: 4px;
     }
@@ -1208,401 +238,974 @@
         padding: 12px;
       }
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #ffd95a 100%);
+    }
+
+    .tech-grid {
+      background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.15) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+
+    /* Enhanced text visibility and animations */
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-shadow-strong {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-pulse-slow {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .animate-counter {
+      animation: counter 2s ease-out forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes counter {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #d4af37 0%, #ffd95a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .number-highlight {
+      background: linear-gradient(135deg, #ff5500 0%, #ffd95a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      text-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+    }
   </style>
 </head>
 
-<body>
+<body class="bg-white text-black antialiased">
 
-  <!-- ===== NAV ===== -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#6C63FF" />
-              <stop offset="1" stop-color="#8e88ff" />
-            </linearGradient>
-          </defs>
-          <circle cx="24" cy="24" r="22" stroke="url(#g)" stroke-width="2" fill="rgba(255,255,255,.04)" />
-          <path d="M17 31c6-1 14-1 14-8 0-6-6-8-12-6" stroke="url(#g)" stroke-width="3" stroke-linecap="round" />
-          <path d="M19 17c-2 6-2 12 4 16" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round" />
-        </svg>
-        <span>PageoNix</span>
-        <span class="beta-badge">Beta</span>
-      </a>
-      <div class="nav-links">
-
-        <a href="#pricing">•Pricing</a>
-
+  <header class="fixed top-0 w-full glass-effect border-b border-gray-100 z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold tracking-tight text-shadow">PageoNix</div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#services" class="text-gray-700 hover:text-black transition-colors font-medium">Services</a>
+        <a href="#process" class="text-gray-700 hover:text-black transition-colors font-medium">Process</a>
+        <a href="#portfolio" class="text-gray-700 hover:text-black transition-colors font-medium">Portfolio</a>
+        <a href="#pricing" class="text-gray-700 hover:text-black transition-colors font-medium">Pricing</a>
+        <button
+          class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-all transform hover:scale-105 font-medium"><a
+            href="https://app.pageonix.in/pageonix/login">Get Started</a></button>
       </div>
-    </div>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <!-- ===== HERO ===== -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-
-        <h1 class="headline">Launch faster with <span class="accent">PageoNix</span></h1>
-        <p class="sub">
-          We're a modern web studio delivering high-performance websites and full-stack products for startups and
-          creators.
-          Built with speed, security, and design precision. We prioritize performance, security, and user experience in
-          every project,
-          ensuring our clients stand out in the digital landscape. Our services range from custom website development to
-          complex web applications, all built with the latest technologies and best practices. Join us on a journey to
-          elevate your online presence with PageoNix.
-        </p>
-
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="p-2">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
-
-      <div class="hero-right">
-
-
-        <div class="hero-benefits">
-          <h2>Get Live With Us!</h2>
-          <div class="benefit-item">
-
-            <div class="benefit-text">Priority access to beta features.</div>
-          </div>
-          <div class="benefit-item">
-
-            <div class="benefit-text">Free call with our engineer</div>
-          </div>
-          <div class="benefit-item">
-
-            <div class="benefit-text">Dedicated launch assistance</div>
-
-          </div>
-          <div class="waitlist-panel">
-            <div>
-              <div class="count" id="preRegCout">1.2k+</div>
-              <div style="font-size:.8rem; color:var(--muted); font-weight:700; text-align:center;">
-                Requested Projects
-              </div>
-            </div>
-            <button class="waitlist-btn" id="waitBtn" type="submit">
-              <a href="https://app.pageonix.in/pageonix/login"
-                style="all:unset; cursor:pointer; display:inline-block; color:rgb(255, 255, 255); text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; text-align:center;">
-                Start Now
-              </a>
-            </button>
-          </div>
-        </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <div class="px-6 py-4 space-y-4">
+        <a href="#services" class="block text-gray-700 hover:text-black transition-colors font-medium">Services</a>
+        <a href="#process" class="block text-gray-700 hover:text-black transition-colors font-medium">Process</a>
+        <a href="#portfolio" class="block text-gray-700 hover:text-black transition-colors font-medium">Portfolio</a>
+        <a href="#pricing" class="block text-gray-700 hover:text-black transition-colors font-medium">Pricing</a>
+        <button
+          class="w-full bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors font-medium"><a
+            href="https://app.pageonix.in/pageonix/login">Get Started</a></button>
       </div>
     </div>
   </header>
 
+  <main>
 
-  <!-- ===== VIDEO SHOWCASE ===== -->
-  <section class="video-section">
-    <div class="video-container">
-      <div class="video-text">
-        <h2>About PageoNix</h2>
-        <p class="lead">
-          PageoNix is a cutting-edge web development studio specializing in building high-performance, secure, and
-          visually stunning websites and full-stack applications. Our team of expert developers and designers work
-          closely
-          with clients to deliver tailored solutions that meet their unique needs. From startups to established
-          businesses, we
-          help bring ideas to life with precision and speed.
+    <section class="gradient-bg pt-32 pb-20 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="inline-flex items-center bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-bold mb-8 animate-pulse-slow">
+          <i data-lucide="sparkles" class="w-4 h-4 mr-2"></i>
+          Trusted by 500+ companies worldwide
+        </div>
+        <h1
+          class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-tight text-shadow-strong animate-slide-up">
+          Lightning-Fast Digital Products</h1>
+        <p class="text-xl md:text-2xl text-gray-800 mb-12 max-w-3xl mx-auto font-medium text-shadow animate-fade-in">
+          Enterprise-grade engineering meets premium minimalistic design. We build the future of web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
+          <button
+            class="bg-black text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-800 transition-all transform hover:scale-105 hover-lift"><a
+              href="https://app.pageonix.in/pageonix/login">Get Started</a></button>
 
-        </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="animate-counter">
+            <div class="text-4xl md:text-5xl number-highlight mb-2 animate-float" data-count="500">0</div>
+            <div class="text-gray-800 text-sm font-semibold">Projects Delivered</div>
+          </div>
+          <div class="animate-counter">
+            <div class="text-4xl md:text-5xl number-highlight mb-2 animate-float" data-count="99.9">0</div>
+            <div class="text-gray-800 text-sm font-semibold">Uptime SLA</div>
+          </div>
+          <div class="animate-counter">
+            <div class="text-4xl md:text-5xl number-highlight mb-2 animate-float" data-count="7">0</div>
+            <div class="text-gray-800 text-sm font-semibold">Day Average Delivery</div>
+          </div>
+          <div class="animate-counter">
+            <div class="text-4xl md:text-5xl number-highlight mb-2 animate-float" data-count="24">0</div>
+            <div class="text-gray-800 text-sm font-semibold">Support Coverage</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="video-wrapper">
-        <iframe width="960" height="540" src="https://www.youtube.com/embed/8hgzJ-7XK0E" title="" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gold/20 hover-lift">
+            <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="zap" class="w-6 h-6 text-gold"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Lightning Speed</h3>
+            <p class="text-gray-700 font-medium">Sub-second load times with optimized performance architecture.</p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gold/20 hover-lift">
+            <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="shield" class="w-6 h-6 text-gold"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Enterprise Security</h3>
+            <p class="text-gray-700 font-medium">OWASP-compliant infrastructure with GDPR-ready solutions.</p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gold/20 hover-lift">
+            <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="cpu" class="w-6 h-6 text-gold"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">AI Integration</h3>
+            <p class="text-gray-700 font-medium">Smart automation and AI-driven development pipelines.</p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl border border-gold/20 hover-lift">
+            <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="palette" class="w-6 h-6 text-gold"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Premium Design</h3>
+            <p class="text-gray-700 font-medium">Apple-level minimalism with conversion-focused UX.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- ===== STATS ===== -->
-  <section class="stats">
-    <div class="stat">
-      <h3 id="stat-prere">1.2k+</h3>
-      <p>Pre-registrations</p>
-    </div>
-    <div class="stat">
-      <h3>320</h3>
-      <p>Active beta members</p>
-    </div>
-    <div class="stat">
-      <h3>50+</h3>
-      <p>Demo requests</p>
-    </div>
-    <div class="stat">
-      <h3>12</h3>
-      <p>Early integrations</p>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES ===== -->
-  <section id="features" class="section">
-    <h2>Our Services</h2>
-    <p class="lead">We provide end-to-end product delivery — from secure system design to polished customer-facing UI.
-    </p>
-
-    <div class="features">
-      <div class="feature">
-        <h4>Cybersecurity & Compliance</h4>
-        <p>Threat-aware architecture, secure deployments, OWASP best practices, and GDPR-ready data handling.</p>
+    <section class="py-20 px-6 bg-gray-50 tech-grid">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Technology Stack</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">Built with cutting-edge technologies for
+            maximum performance and scalability.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/react-logo/ccbb767dd4_0.png"
+              alt="React.js" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">React</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/nextjs-logo/62abe9470a_0.png"
+              alt="Next.js" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">Next.js</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/nodejs-logo/f9ca157cdd_0.png"
+              alt="Node.js" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">Node.js</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/python-logo/21165c35df_0.png"
+              alt="Python" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">Python</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/aws-logo/08e6eee4a5_0.png"
+              alt="AWS" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg" loading="lazy"
+              decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">AWS</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover-lift text-center">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/docker-logo/3503f075d0_0.png"
+              alt="Docker" width="60" height="60" class="mx-auto mb-3 object-cover w-full block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:60/60;">
+            <div class="font-bold text-sm text-gray-900">Docker</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>Frontend</h4>
-        <p>Modern React / Next.js and performant static-first builds with accessibility and SEO baked in.</p>
+    <section id="services" class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">What We Build</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">Full-stack solutions engineered for
+            performance, security, and scale.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">High-Speed Custom Websites</h3>
+            <p class="text-gray-700 mb-4 font-medium">Blazing-fast websites with perfect performance scores and SEO
+              optimization.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• Core Web Vitals optimization</li>
+              <li>• Mobile-first responsive design</li>
+              <li>• Advanced SEO implementation</li>
+              <li>• Analytics & conversion tracking</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Full-Stack Web Applications</h3>
+            <p class="text-gray-700 mb-4 font-medium">Complete web applications with modern React/Next.js frontends and
+              robust backends.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• React/Next.js frontend development</li>
+              <li>• RESTful & GraphQL APIs</li>
+              <li>• Database design & optimization</li>
+              <li>• User authentication systems</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="server" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Scalable Backend Systems</h3>
+            <p class="text-gray-700 mb-4 font-medium">Node.js, Python, and Go APIs designed for enterprise-level
+              performance.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• Microservices architecture</li>
+              <li>• Load balancing & caching</li>
+              <li>• Database clustering</li>
+              <li>• API rate limiting & security</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="settings" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">DevOps Pipeline Automation</h3>
+            <p class="text-gray-700 mb-4 font-medium">Docker, Kubernetes, and CI/CD pipelines for seamless deployment
+              workflows.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• Automated testing & deployment</li>
+              <li>• Container orchestration</li>
+              <li>• Infrastructure as Code</li>
+              <li>• Monitoring & alerting systems</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="cloud" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Cloud Infrastructure Management</h3>
+            <p class="text-gray-700 mb-4 font-medium">Vercel, AWS, and GCP hosting with auto-scaling and monitoring.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• Multi-cloud deployment strategies</li>
+              <li>• Auto-scaling configurations</li>
+              <li>• CDN optimization</li>
+              <li>• Disaster recovery planning</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift border border-gray-100">
+            <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="brain" class="w-6 h-6 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">AI Integration Solutions</h3>
+            <p class="text-gray-700 mb-4 font-medium">Smart automation, chatbots, and AI-powered features for modern
+              applications.</p>
+            <ul class="text-sm text-gray-600 space-y-1 font-medium">
+              <li>• OpenAI & Claude integrations</li>
+              <li>• Custom ML model deployment</li>
+              <li>• Intelligent chatbot systems</li>
+              <li>• Automated content generation</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>Backend & APIs</h4>
-        <p>Node, Go, or Python microservices, REST/GraphQL APIs, and scalable database design (Postgres, Redis).</p>
+    <section id="portfolio" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Featured Work</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">Showcasing our latest premium digital products
+            and client success stories.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/portfolio-fintech/a8903448c4_0.png"
+              alt="FinTech Dashboard" width="400" height="250" class="w-full h-48 object-cover block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:400/250;">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-gray-900">FinTech Dashboard</h3>
+              <p class="text-gray-700 mb-4 font-medium">Real-time financial analytics platform with AI-powered insights
+                and automated reporting.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Node.js</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">AWS</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/portfolio-ecommerce/302ee97674_0.png"
+              alt="E-commerce Platform" width="400" height="250" class="w-full h-48 object-cover block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:400/250;">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-gray-900">E-commerce Platform</h3>
+              <p class="text-gray-700 mb-4 font-medium">High-conversion online store with advanced inventory management
+                and payment processing.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Next.js</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Stripe</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Vercel</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift">
+            <img
+              src="https://cdn.ailandingpage.ai/landingpage_io/user_generate/729ebcaa-571e-47f1-890c-399ce2eba634/729ebcaa-571e-47f1-890c-399ce2eba634/portfolio-saas/c81138dc4e_0.png"
+              alt="SaaS Platform" width="400" height="250" class="w-full h-48 object-cover block rounded-lg"
+              loading="lazy" decoding="async" style="aspect-ratio:400/250;">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-gray-900">SaaS Platform</h3>
+              <p class="text-gray-700 mb-4 font-medium">Multi-tenant application with advanced analytics, team
+                collaboration, and API integrations.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Python</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold">Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <button
+            class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition-all transform hover:scale-105"><a
+            href="https://app.pageonix.in/pageonix/login">Get Started</a></button>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>DevOps & Hosting</h4>
-        <p>CI/CD, containerization, cloud deployments (VPS, AWS, GCP), observability and automated scaling.</p>
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Why Choose PageoNix</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">We deliver exceptional results through proven
+            methodologies and cutting-edge technology.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center animate-counter">
+            <div class="text-6xl font-black number-highlight mb-4 animate-pulse-slow" data-count="99">0</div>
+            <h3 class="text-2xl font-bold mb-3 text-gray-900">Performance Score</h3>
+            <p class="text-gray-700 font-medium">Lighthouse scores consistently above 99 with sub-second load times
+              across all devices.</p>
+          </div>
+          <div class="text-center animate-counter">
+            <div class="text-6xl font-black number-highlight mb-4 animate-pulse-slow" data-count="7">0</div>
+            <h3 class="text-2xl font-bold mb-3 text-gray-900">Day Delivery</h3>
+            <p class="text-gray-700 font-medium">From concept to launch in one week with our streamlined development
+              process.</p>
+          </div>
+          <div class="text-center animate-counter">
+            <div class="text-6xl font-black number-highlight mb-4 animate-pulse-slow" data-count="100">0</div>
+            <h3 class="text-2xl font-bold mb-3 text-gray-900">Uptime Guarantee</h3>
+            <p class="text-gray-700 font-medium">Enterprise-grade infrastructure with 24/7 monitoring and instant
+              failover systems.</p>
+          </div>
+          <div class="text-center animate-counter">
+            <div class="text-6xl font-black number-highlight mb-4 animate-pulse-slow" data-count="500">0</div>
+            <h3 class="text-2xl font-bold mb-3 text-gray-900">Happy Clients</h3>
+            <p class="text-gray-700 font-medium">Trusted by startups to Fortune 500 companies for their digital
+              transformation needs.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>Performance & Analytics</h4>
-        <p>Core Web Vitals tuning, image/asset optimization, and instrumentation for product insights.</p>
+    <section class="py-20 px-6 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Industry Expertise</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">Deep domain knowledge across multiple
+            industries and business verticals.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="building-2" class="w-6 h-6 text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">FinTech & Banking</h3>
+            <p class="text-gray-700 font-medium">Secure payment systems, trading platforms, and financial analytics
+              dashboards with regulatory compliance.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="heart-pulse" class="w-6 h-6 text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Healthcare & MedTech</h3>
+            <p class="text-gray-700 font-medium">HIPAA-compliant patient portals, telemedicine platforms, and medical
+              device integrations.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="shopping-cart" class="w-6 h-6 text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">E-commerce & Retail</h3>
+            <p class="text-gray-700 font-medium">High-conversion online stores, inventory management systems, and
+              omnichannel experiences.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-orange-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">EdTech & Learning</h3>
+            <p class="text-gray-700 font-medium">Learning management systems, online course platforms, and educational
+              content delivery.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="home" class="w-6 h-6 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Real Estate & PropTech</h3>
+            <p class="text-gray-700 font-medium">Property management platforms, virtual tour systems, and real estate
+              marketplaces.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="briefcase" class="w-6 h-6 text-indigo-600"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">SaaS & Enterprise</h3>
+            <p class="text-gray-700 font-medium">Business automation tools, CRM systems, and enterprise resource
+              planning solutions.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>Brand & Product Design</h4>
-        <p>UI/UX, visual identity, copy support, and conversion-led landing pages.</p>
+    <section id="process" class="py-20 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Our Process</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">A proven methodology that delivers exceptional
+            results every time.</p>
+        </div>
+        <div class="space-y-12">
+          <div class="flex items-start gap-8">
+            <div
+              class="w-16 h-16 bg-gold rounded-full flex items-center justify-center text-2xl font-bold text-black flex-shrink-0 animate-pulse-slow">
+              1</div>
+            <div>
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">Discovery & Strategy</h3>
+              <p class="text-gray-700 text-lg mb-4 font-medium">We analyze your vision, technical requirements, and
+                business objectives to craft the perfect solution architecture.</p>
+              <ul class="text-gray-600 space-y-1 font-medium">
+                <li>• Stakeholder interviews & requirement gathering</li>
+                <li>• Technical feasibility assessment</li>
+                <li>• Competitive analysis & market research</li>
+                <li>• Project roadmap & timeline planning</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-start gap-8">
+            <div
+              class="w-16 h-16 bg-gold rounded-full flex items-center justify-center text-2xl font-bold text-black flex-shrink-0 animate-pulse-slow">
+              2</div>
+            <div>
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">Design & Prototyping</h3>
+              <p class="text-gray-700 text-lg mb-4 font-medium">Premium UI/UX design with conversion-focused user
+                experience architecture and interactive prototypes.</p>
+              <ul class="text-gray-600 space-y-1 font-medium">
+                <li>• User journey mapping & wireframing</li>
+                <li>• High-fidelity design mockups</li>
+                <li>• Interactive prototype development</li>
+                <li>• Design system & component library</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-start gap-8">
+            <div
+              class="w-16 h-16 bg-gold rounded-full flex items-center justify-center text-2xl font-bold text-black flex-shrink-0 animate-pulse-slow">
+              3</div>
+            <div>
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">Development & Testing</h3>
+              <p class="text-gray-700 text-lg mb-4 font-medium">Lightning-fast development with enterprise-grade
+                security, performance optimization, and comprehensive testing.</p>
+              <ul class="text-gray-600 space-y-1 font-medium">
+                <li>• Agile development methodology</li>
+                <li>• Automated testing & quality assurance</li>
+                <li>• Performance optimization & security audits</li>
+                <li>• Code review & documentation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex items-start gap-8">
+            <div
+              class="w-16 h-16 bg-gold rounded-full flex items-center justify-center text-2xl font-bold text-black flex-shrink-0 animate-pulse-slow">
+              4</div>
+            <div>
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">Launch & Optimization</h3>
+              <p class="text-gray-700 text-lg mb-4 font-medium">Seamless deployment with monitoring, analytics, ongoing
+                support, and continuous optimization.</p>
+              <ul class="text-gray-600 space-y-1 font-medium">
+                <li>• Production deployment & go-live support</li>
+                <li>• Performance monitoring & analytics setup</li>
+                <li>• User training & documentation</li>
+                <li>• Ongoing maintenance & optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- ===== TECH STACK SECTION ===== -->
-  <section id="stack" class="section techstack-section">
-    <h2>Our Technology Stack</h2>
-    <p class="lead">We work across a full modern stack — from fast frontends to scalable APIs and secure cloud systems.
-    </p>
+    </section>
 
-    <div class="stack-grid">
-      <!-- Frontend -->
-      <div class="stack-card">
 
-        <h4>Frontend</h4>
-        <p>React, Next.js, Vue, TailwindCSS, TypeScript, HTML5, CSS3 — performance-driven and pixel-perfect UI
-          development.</p>
+
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Security & Compliance</h2>
+          <p class="text-xl text-gray-800 max-w-2xl mx-auto font-medium">Enterprise-grade security measures and industry
+            compliance standards.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-6 bg-gray-50 rounded-2xl hover-lift">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-gray-900">OWASP Compliant</h3>
+            <p class="text-gray-700 text-sm font-medium">Following OWASP Top 10 security guidelines for web application
+              security.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-2xl hover-lift">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="lock" class="w-8 h-8 text-blue-600"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-gray-900">GDPR Ready</h3>
+            <p class="text-gray-700 text-sm font-medium">Built-in privacy controls and data protection compliance
+              features.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-2xl hover-lift">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="certificate" class="w-8 h-8 text-purple-600"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-gray-900">SOC 2 Type II</h3>
+            <p class="text-gray-700 text-sm font-medium">Audited security controls for data handling and processing.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-2xl hover-lift">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="heart-pulse" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-gray-900">HIPAA Compliant</h3>
+            <p class="text-gray-700 text-sm font-medium">Healthcare data protection and privacy compliance for medical
+              applications.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Backend -->
-      <div class="stack-card">
-
-        <h4>Backend</h4>
-        <p>Node.js, Express, PHP, Laravel, Python (Flask, Django), REST & GraphQL APIs — clean, scalable architecture.
-        </p>
+    <section id="pricing" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Premium Plans</h2>
+          <p class="text-xl text-gray-800 font-medium">Choose the perfect solution for your digital ambitions.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Starter</h3>
+            <div class="text-4xl font-black mb-2 text-gray-900">$500</div>
+            <div class="text-gray-600 mb-6 font-medium">Perfect for small businesses</div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">High-speed landing page</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">Mobile-first design</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">SEO optimization</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">7-day delivery</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">30-day support</span></li>
+            </ul>
+            <button
+              class="w-full bg-black text-white py-3 rounded-full font-bold hover:bg-gray-800 transition-all transform hover:scale-105">Get
+              Started</button>
+          </div>
+          <div class="bg-black text-white p-8 rounded-2xl shadow-lg transform scale-105 hover-lift">
+            <div class="bg-gold text-black px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">Most Popular
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Pro Website</h3>
+            <div class="text-4xl font-black mb-2">$2,500</div>
+            <div class="text-gray-300 mb-6 font-medium">Ideal for growing companies</div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium">Full website + CMS</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium">Premium animations</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium">Analytics integration</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium">Cloud hosting setup</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium">90-day support</span></li>
+            </ul>
+            <button
+              class="w-full bg-gold text-black py-3 rounded-full font-bold hover:bg-warmyellow transition-all transform hover:scale-105">Choose
+              Pro</button>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover-lift">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Business+</h3>
+            <div class="text-4xl font-black mb-2 text-gray-900">$10,000</div>
+            <div class="text-gray-600 mb-6 font-medium">Enterprise-grade solutions</div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">Full-stack application</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">Custom backend + API</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">DevOps pipeline</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">AI integrations</span></li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-gold mr-3"></i><span
+                  class="font-medium text-gray-800">6-month support</span></li>
+            </ul>
+            <button
+              class="w-full bg-black text-white py-3 rounded-full font-bold hover:bg-gray-800 transition-all transform hover:scale-105">Contact
+              Us</button>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <p class="text-gray-700 mb-4 font-medium">Need a custom solution? We offer flexible pricing for enterprise
+            clients.</p>
+          <button
+            class="bg-gold text-black px-8 py-3 rounded-full font-bold hover:bg-warmyellow transition-all transform hover:scale-105"><a
+            href="https://app.pageonix.in/pageonix/login">Schedule Consultation</a></button>
+        </div>
       </div>
+    </section>
 
-      <!-- Databases -->
-      <div class="stack-card">
-
-        <h4>Databases</h4>
-        <p>PostgreSQL, MySQL, MongoDB, Redis — optimized data storage, caching, and real-time performance tuning.</p>
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black mb-6 text-shadow">Frequently Asked Questions</h2>
+        </div>
+        <div class="space-y-6">
+          <div class="border border-gray-200 rounded-2xl p-6 hover-lift">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">How fast can you deliver a project?</h3>
+            <p class="text-gray-700 font-medium">Our average delivery time is 7 days for standard websites and 2-4 weeks
+              for complex applications. We use agile methodologies and have streamlined processes to ensure rapid
+              delivery without compromising quality.</p>
+          </div>
+          <div class="border border-gray-200 rounded-2xl p-6 hover-lift">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Do you provide ongoing support and maintenance?</h3>
+            <p class="text-gray-700 font-medium">Yes, all our packages include post-launch support. We offer 30-90 days
+              of included support depending on your plan, plus optional extended maintenance contracts for ongoing
+              updates and optimizations.</p>
+          </div>
+          <div class="border border-gray-200 rounded-2xl p-6 hover-lift">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">What technologies do you specialize in?</h3>
+            <p class="text-gray-700 font-medium">We specialize in modern web technologies including React, Next.js,
+              Node.js, Python, and cloud platforms like AWS and Vercel. We choose the best technology stack based on
+              your specific requirements and scalability needs.</p>
+          </div>
+          <div class="border border-gray-200 rounded-2xl p-6 hover-lift">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Can you help with existing projects or only new builds?
+            </h3>
+            <p class="text-gray-700 font-medium">We work on both new projects and existing applications. Our team can
+              audit, optimize, and enhance your current systems, or build entirely new solutions from scratch based on
+              your needs.</p>
+          </div>
+          <div class="border border-gray-200 rounded-2xl p-6 hover-lift">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">What makes PageoNix different from other agencies?</h3>
+            <p class="text-gray-700 font-medium">Our focus on lightning-fast performance, enterprise-grade security, and
+              premium design sets us apart. We combine technical excellence with business strategy to deliver solutions
+              that not only look great but drive real results.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Cloud / DevOps -->
-      <div class="stack-card">
-
-        <h4>Cloud & DevOps</h4>
-        <p>Docker, Kubernetes, CI/CD (GitHub Actions), AWS, GCP, Vercel, Netlify — continuous deployment pipelines that
-          scale.</p>
+    <section class="py-20 px-6 bg-black text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-black mb-6 text-shadow-strong">Ready to Build the Future?</h2>
+        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-medium">Join the elite companies that trust
+          PageoNix for their digital transformation.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <button
+            class="bg-gold text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-warmyellow transition-all transform hover:scale-105 hover-lift"><a
+            href="https://app.pageonix.in/pageonix/login">Start Your Project</a></button>
+          
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="text-2xl font-bold mb-2">Free Consultation</div>
+            <p class="text-gray-400 font-medium">30-minute strategy session to discuss your project goals and
+              requirements.</p>
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-2">No Hidden Fees</div>
+            <p class="text-gray-400 font-medium">Transparent pricing with everything included. No surprises or
+              additional costs.</p>
+          </div>
+          <div>
+            <div class="text-2xl font-bold mb-2">Money-Back Guarantee</div>
+            <p class="text-gray-400 font-medium">100% satisfaction guarantee. If you're not happy, we'll make it right
+              or refund your investment.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Security -->
-      <div class="stack-card">
+  </main>
 
-        <h4>Security</h4>
-        <p>OWASP hardening, SSL automation, authentication layers, API rate-limiting, and vulnerability scanning.</p>
+  <footer class="bg-white border-t border-gray-100 py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="text-2xl font-bold mb-4 text-gray-900">PageoNix</div>
+          <p class="text-gray-700 mb-4 font-medium">Engineering the future of web with lightning-fast digital products.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://x.com/pageonix_labs" class="text-gray-500 hover:text-gold transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+
+            <a href="https://github.com/pageonix" class="text-gray-500 hover:text-gold transition-colors">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-gray-900">Services</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">Web Development</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">Full-Stack Apps</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">DevOps & Cloud</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">AI Integration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-gray-900">Company</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">About Us</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">Portfolio</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">Case Studies</a></li>
+            <li><a href="#" class="hover:text-gold transition-colors font-medium">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-gray-900">Contact</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="font-medium">info@pageonix.in</li>
+            <li class="font-medium">+91 89813 81661</li>
+            <li class="font-medium">Kota Rajasthan, IN</li>
+            <li><a href="https://app.pageonix.in/pageonix/login"
+                class="hover:text-gold transition-colors font-medium">Schedule Call</a></li>
+          </ul>
+        </div>
       </div>
-
-      <!-- AI / Integrations -->
-      <div class="stack-card">
-
-        <h4>AI & Integrations</h4>
-        <p>Python ML toolchains, OpenAI APIs, LangChain, analytics dashboards, and automation scripts built for
-          insights.</p>
+      <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-700 mb-4 md:mb-0 font-medium">&copy; 2025 PageoNix. Engineering the future of web.</p>
+        <div class="flex space-x-8">
+          <a href="https://pageonix.in/pages/terms.html"
+            class="text-gray-700 hover:text-gold transition-colors hover:underline font-medium">Privacy Policy</a>
+          <a href="https://pageonix.in/pages/terms.html"
+            class="text-gray-700 hover:text-gold transition-colors hover:underline font-medium">Terms of Service</a>
+          <a href="https://pageonix.in/pages/terms.html"
+            class="text-gray-700 hover:text-gold transition-colors hover:underline font-medium">Cookie Policy</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== DEMO / SHOWCASE ===== -->
-  <section id="demo" class="section">
-    <h2>Our Recent Work</h2>
-    <p class="lead">A few of the projects we’ve designed and developed for businesses like yours.</p>
-    <div class="demo">
-      <div class="card">
-        <p class="panel-title">Portfolio Sites</p>
-        <p>Minimal, elegant, and responsive — perfect for artists, creators, and freelancers.</p>
-      </div>
-      <div class="card">
-        <p class="panel-title"> Business Websites</p>
-        <p>Conversion-optimized designs for cafes, startups, and service brands.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BENEFITS (replaces testimonials) ===== -->
-  <section class="section">
-    <h2>Why PageoNix</h2>
-    <p class="lead">We’re small by design. That means fast decisions, senior engineers on your project, and tight
-      feedback loops.</p>
-
-    <div class="features">
-      <div class="feature">
-        <h4>Early-bird perks</h4>
-        <p>Introductory pricing, priority onboarding, and a dedicated launch engineer for the first projects.</p>
-      </div>
-
-      <div class="feature">
-        <h4>Trusted engineering</h4>
-        <p>Secure practices, automated testing, and production observability from day one.</p>
-      </div>
-
-      <div class="feature">
-        <h4>Built to scale</h4>
-        <p>From marketing sites to multi‑page apps and APIs — we design for future growth and low operational overhead.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRICING ===== -->
-  <!-- ===== PRICING ===== -->
-  <section id="pricing" class="section">
-    <h2>Simple Pricing</h2>
-    <p class="lead">Flexible packages to fit your goals — whether you're launching your first site or scaling your
-      brand.</p>
-
-    <div class="pricing">
-      <!-- Tier 3 -->
-      <div class="tier">
-        <div class="badge">Starter</div>
-        <h3>Basic</h3>
-        <p class="price">$0</p>
-        <ul class="features-list">
-          <li><span class="check">✔</span> Free consultation call</li>
-          <li><span class="check">✔</span> Homepage design sample</li>
-          <li><span class="check">✔</span> Project roadmap</li>
-        </ul>
-        <a href="https://app.pageonix.in/pageonix/login" style="all:unset;
-                cursor:pointer;
-                display:inline-block;
-                background-color:white;
-                color:black;
-                text-decoration:none;
-                padding:10px 20px;
-                border-radius:6px;
-                border:1px solid black;
-                font-weight:600;
-                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-          Start
-        </a>
-      </div>
-
-      <!-- Tier 2 -->
-      <div class="tier" style="border-color:rgba(255,255,255,.15); box-shadow:0 20px 60px rgba(108,99,255,.25)">
-        <div class="badge">Most Popular</div>
-        <h3>Pro Website</h3>
-        <p class="price">$799<span style="font-size:.9rem;color:var(--muted)"> /project</span></p>
-        <ul class="features-list">
-          <li><span class="check">✔</span> Custom 5-page website</li>
-          <li><span class="check">✔</span> SEO & performance optimization</li>
-          <li><span class="check">✔</span> Responsive mobile design</li>
-          <li><span class="check">✔</span> 1 month post-launch support</li>
-        </ul>
-        <a href="https://app.pageonix.in/pageonix/login" style="all:unset;
-                cursor:pointer;
-                display:inline-block;
-                background-color:white;
-                color:black;
-                text-decoration:none;
-                padding:10px 20px;
-                border-radius:6px;
-                border:1px solid black;
-                font-weight:600;
-                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-          Start
-        </a>
-      </div>
-
-      <!-- Tier 1 -->
-      <div class="tier">
-        <div class="badge">Teams</div>
-        <h3>Business+</h3>
-        <p class="price">$1599<span style="font-size:.9rem;color:var(--muted)"> /project</span></p>
-        <ul class="features-list">
-          <li><span class="check">✔</span> Advanced multi-page website</li>
-          <li><span class="check">✔</span> Brand identity package</li>
-          <li><span class="check">✔</span> Ongoing optimization</li>
-          <li><span class="check">✔</span> Priority creative support</li>
-        </ul>
-        <a href="https://app.pageonix.in/pageonix/login" style="all:unset;
-                cursor:pointer;
-                display:inline-block;
-                background-color:white;
-                color:black;
-                text-decoration:none;
-                padding:10px 20px;
-                border-radius:6px;
-                border:1px solid black;
-                font-weight:600;
-                text-align:center;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-          Start
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ===== FAQ ===== -->
-  <section id="faq" class="section">
-    <h2>FAQ</h2>
-    <div class="faq">
-      <details>
-        <summary>Do you design from scratch?</summary>
-        <p>Yes — every website is custom-built for your goals, audience, and visual identity.</p>
-      </details>
-      <details>
-        <summary>Can you help with branding or logos?</summary>
-        <p>Absolutely. We offer full identity design — logos, color palettes, and brand guidelines.</p>
-      </details>
-      <details>
-        <summary>Do you maintain the website after launch?</summary>
-        <p>Yes, we offer flexible maintenance and update packages after delivery.</p>
-      </details>
-      <details>
-        <summary>How long does it take to build a website?</summary>
-        <p>Most projects are completed in 2–4 weeks, depending on size and revisions.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div style="display:flex; align-items:center; gap:10px">
-        <strong>PageoNix</strong>
-        <span style="opacity:.65">© 2025</span>
-      </div>
-
     </div>
   </footer>
 
-  <div id="toast"
-    style="position:fixed; left:50%; transform:translateX(-50%); bottom:24px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); color:#fff; padding:12px 16px; border-radius:12px; display:none; backdrop-filter: blur(8px)">
-  </div>
-
   <script>
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu if open
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('bg-white/95');
+      } else {
+        header.classList.remove('bg-white/95');
+      }
+    });
+
+    // Animated counter function
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target.toString().includes('.') ? target : Math.floor(target);
+          clearInterval(timer);
+        } else {
+          element.textContent = target.toString().includes('.') ? start.toFixed(1) : Math.floor(start);
+        }
+      }, 16);
+    }
+
+    // Initialize counters when they come into view
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('[data-count]');
+          if (counter && !counter.classList.contains('animated')) {
+            counter.classList.add('animated');
+            const target = parseFloat(counter.getAttribute('data-count'));
+            animateCounter(counter, target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all counter sections
+    document.querySelectorAll('.animate-counter').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add entrance animations on scroll
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      fadeObserver.observe(section);
+    });
+
+
+
     // filepath: d:\cdraft\Pageonix\org\home\pages\page.html
     function scrollToEl(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
     function toast(msg) {
@@ -1750,20 +1353,30 @@
         isChatOpen = true;
         chatContainer.style.display = 'flex';
         chatContainer.style.flexDirection = 'column';
+
         // Hide chat trigger button on mobile
         if (window.innerWidth <= 640) {
-          aiTrigger.classList.add('hide-when-chat');
+          aiTrigger.style.display = "none";
         }
+
         setTimeout(() => messageInput?.focus(), 80);
-        setTimeout(() => { if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight; }, 120);
+        setTimeout(() => {
+          if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 120);
+
         adjustChatHeight();
       }
+
       function closeChat() {
         isChatOpen = false;
         chatContainer.style.display = 'none';
+
         // Show chat trigger button again on mobile
-        aiTrigger.classList.remove('hide-when-chat');
+        if (window.innerWidth <= 640) {
+          aiTrigger.style.display = "flex";
+        }
       }
+
 
       // Bind open/close actions
       aiTrigger.addEventListener('click', openChat);
@@ -1849,34 +1462,58 @@
     })();
 
 
+
   </script>
-  <!-- AI Chat Interface -->
-  <button class="ai-trigger" id="aiTrigger" aria-label="Onix">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- AI Chat Trigger Button -->
+  <button id="aiTrigger"
+    class="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-gradient-to-br from-[#d4af37] to-[#a3831f] shadow-xl cursor-pointer flex items-center justify-center transition-transform duration-200 hover:scale-105 z-[1000]">
+    <svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
       <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white"
         stroke="white" stroke-width="0.5" />
-      <text x="7.5" y="13" font-family="Inter" font-size="8" font-weight="bold" fill="#6C63FF">AI</text>
+      <text x="7.5" y="13" font-family="Inter" font-size="8" font-weight="bold" fill="#000000">AI</text>
     </svg>
   </button>
 
-  <div class="chat-container" id="chatContainer" style="display: none;">
-    <div class="chat-header">
-      <!-- Remove logo in mobile, add close button -->
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+  <!-- Chat Container -->
+  <div id="chatContainer" class="hidden fixed bottom-24 right-5 w-[380px] h-[500px] bg-black border border-[#d4af37]/40 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.7)] flex flex-col overflow-hidden z-[999]
+  max-sm:w-full max-sm:h-full max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none">
+
+    <!-- Chat Header -->
+    <div
+      class="p-4 bg-gradient-to-r from-[#d4af37]/20 to-[#f5e6a7]/10 border-b border-[#d4af37]/40 flex items-center gap-3">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#d4af37">
         <path
           d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v7h-2zm0 8h2v2h-2z" />
       </svg>
-      <h3>oNix </h3>
-      <button class="chat-close" id="chatCloseBtn" aria-label="Close chat">&times;</button>
+      <h3 class="text-lg font-semibold text-white tracking-wide">oNix</h3>
+
+      <button id="chatCloseBtn"
+        class="ml-auto text-3xl leading-none px-2 py-1 cursor-pointer text-white/70 hover:text-white">
+        &times;
+      </button>
     </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message ai">Hi! I'm oNix, your AI assistant. How can I help you today?</div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 bg-black">
+      <div
+        class="max-w-[80%] bg-[#f5e6a7]/10 text-white p-3 rounded-xl rounded-bl-md text-sm border border-[#d4af37]/20">
+        Hi! I'm oNix, your AI assistant. How can I help you today?
+      </div>
     </div>
-    <div class="chat-input">
-      <input type="text" id="messageInput" placeholder="Type your message..." aria-label="Message">
-      <button id="sendMessage">Send</button>
+
+    <!-- Input -->
+    <div
+      class="p-4 border-t border-[#d4af37]/30 flex gap-2 max-sm:fixed max-sm:bottom-0 max-sm:left-0 max-sm:right-0 max-sm:bg-black">
+      <input id="messageInput" type="text" placeholder="Type your message..."
+        class="flex-1 p-3 rounded-lg border border-[#d4af37]/30 bg-black text-white placeholder-white/40 text-sm outline-none" />
+      <button id="sendMessage"
+        class="px-4 py-2 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#a3831f] text-black font-semibold">
+        Send
+      </button>
     </div>
+
   </div>
+
 </body>
 
 </html>
