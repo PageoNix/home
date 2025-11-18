@@ -428,7 +428,7 @@
 
         function handleGoogleLogin(response) {
             toggleLoading(true, 'googleProcessing');
-            fetch('/api/auth/google', {
+            fetch('https://app.pageonix.in/api/auth/google', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token: response.credential })
@@ -474,7 +474,7 @@
 
             toggleLoading(true, 'otpLoading', 'sendOtpBtn');
 
-            fetch('/api/auth/send-otp', {
+            fetch('https://app.pageonix.in/api/auth/send-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email })
@@ -511,7 +511,7 @@
             const email = document.getElementById('emailInput').value.trim();
             const otp = document.getElementById('otpInput').value.trim();
             if (otp.length !== 6) return showError('otpError', 'Enter 6-digit code');
-            fetch('/api/auth/verify-otp', {
+            fetch('https://app.pageonix.in/api/auth/verify-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp })
@@ -532,7 +532,7 @@
             if (!validateEmail(email)) return showError('loginEmailError', 'Invalid email');
             toggleLoading(true, 'loginOtpLoading', 'loginOtpBtn');
 
-            fetch('/api/auth/send-otp', {
+            fetch('https://app.pageonix.in/api/auth/send-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: "", email })
@@ -551,7 +551,7 @@
             const email = document.getElementById('loginEmail').value.trim();
             const otp = document.getElementById('loginOtpInput').value.trim();
             if (otp.length !== 6) return showError('loginOtpError', 'Enter 6-digit code');
-            fetch('/api/auth/verify-otp', {
+            fetch('https://app.pageonix.in/api/auth/verify-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp })
@@ -629,7 +629,7 @@
                     source: getQuerySource()
                 };
 
-                fetch("/api/xtrack-register-visit", {
+                fetch("https://app.pageonix.in/api/xtrack-register-visit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)

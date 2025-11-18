@@ -779,7 +779,7 @@ const techStacks = [
 
 let currentUser = {};
 
-const BASE_URL = "https://app.pageonix.in/pageonix";
+const BASE_URL = "https://app.pageonix.in";
 
 window.api = function(endpoint, options = {}) {
   const full = endpoint.startsWith("http")
@@ -800,10 +800,10 @@ async function initDashboard() {
       updateUI();
       await loadSubmissions();
     } else {
-      window.location.href = 'login.html';
+      window.location.href = 'login';
     }
   } catch (e) {
-    window.location.href = 'login.html';
+    window.location.href = 'login';
   }
 }
 
