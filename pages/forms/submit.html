@@ -793,17 +793,17 @@ window.api = function(endpoint, options = {}) {
 // Initialize dashboard
 async function initDashboard() {
   try {
-    const res = await fetch('/api/user/profile');
+    const res = await fetch('https://app.pageonix.in/api/user/profile');
     const data = await res.json();
     if (data.status === 'success') {
       currentUser = data.user;
       updateUI();
       await loadSubmissions();
     } else {
-      window.location.href = 'login';
+      window.location.href = 'https://pageonix.in/home/pages/forms/login.html';
     }
   } catch (e) {
-    window.location.href = 'login';
+    window.location.href = 'https://pageonix.in/home/pages/forms/login.html';
   }
 }
 
@@ -841,7 +841,7 @@ function updateUI() {
 
 async function loadSubmissions() {
   try {
-    const res = await fetch('/api/user/submissions');
+    const res = await fetch('https://app.pageonix.in/api/user/submissions');
     const data = await res.json();
     if (data.status === 'success') {
       const submissions = data.submissions;
@@ -964,7 +964,7 @@ async function submitNewRequest(e) {
   });
 
   try {
-    const res = await fetch('/api/user/submit', { method: 'POST', body: formData });
+    const res = await fetch('https://app.pageonix.in/api/user/submit', { method: 'POST', body: formData });
     const data = await res.json();
     if (data.status === 'success') {
       closeNewRequestForm();
@@ -983,8 +983,8 @@ function viewSubmission(id) {
 }
 
 function logout() {
-  fetch('/api/auth/logout', { method: 'POST' }).then(() => {
-    window.location.href = '/pageonix/login';
+  fetch('https://app.pageonix.in/api/auth/logout', { method: 'POST' }).then(() => {
+    window.location.href = 'https://pageonix.in/home/pages/forms/login.html';
   });
 }
 
@@ -1022,7 +1022,7 @@ initDashboard();
             source: getQuerySource()
         };
 
-        fetch("/api/xtrack-register-visit", {
+        fetch("https://app.pageonix.in/api/xtrack-register-visit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)

