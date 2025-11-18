@@ -3,316 +3,1040 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Submit Request | PageoNix</title>
+<title>Dashboard | PageoNix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #0d6efd;
-    --bg: #f5f7fb;
-    --card: #fff;
-    --muted: #6c757d;
+    --primary: #2d2d2d;
+    --secondary: #555;
+    --border: #e5e5e5;
+    --light-bg: #fafafa;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   body {
-    background: var(--bg);
+    background: var(--light-bg);
     font-family: Poppins, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-
-  .container {
-    max-width: 750px;
-    margin: auto;
-    background: var(--card);
-    border-radius: 14px;
-    padding: 35px 25px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  h2 {
     color: var(--primary);
-    text-align: center;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-header {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar.has-picture {
+    background: none;
+  }
+
+  .user-info {
+    text-align: right;
+  }
+
+  .user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .user-email {
+    font-size: 11px;
+    color: var(--secondary);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    display: none;
+    z-index: 1000;
+  }
+
+  .dropdown-menu.active {
+    display: block;
+  }
+
+  .dropdown-item {
+    padding: 12px 16px;
+    color: var(--primary);
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background: var(--light-bg);
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-item.logout {
+    color: var(--danger);
+  }
+
+  /* ===== MAIN CONTAINER ===== */
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+  }
+
+  .tab {
+    padding: 12px 0;
+    color: var(--secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  .tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+
+  /* ===== PROFILE SECTION ===== */
+  .profile-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .profile-header {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .profile-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .profile-avatar-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile-avatar-large.has-picture {
+    background: none;
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .profile-email {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .profile-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--secondary);
+    margin-top: 4px;
+  }
+
+  /* ===== SUBMISSIONS SECTION ===== */
+  .submissions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
   }
 
-  .top-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 15px;
+  .submissions-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
   }
 
-  .top-actions a {
+  .new-request-btn {
     background: var(--primary);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  label {
-    font-weight: 600;
-    display: block;
-    margin-top: 14px;
-  }
-
-  input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 6px;
-    font-size: 1rem;
-  }
-
-  button {
-    background: var(--primary);
-    color: #fff;
+    color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 8px;
-    margin-top: 20px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 13px;
     transition: all 0.2s ease;
+  }
+
+  .new-request-btn:hover {
+    background: #1a1a1a;
+    transform: translateY(-1px);
+  }
+
+  /* ===== SUBMISSION CARDS ===== */
+  .submissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .submission-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid var(--border);
+    transition: all 0.2s ease;
+  }
+
+  .submission-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .submission-card.status-under-process {
+    border-left-color: #ffc107;
+  }
+
+  .submission-card.status-previewed {
+    border-left-color: #0d6efd;
+  }
+
+  .submission-card.status-meeting {
+    border-left-color: #667eea;
+  }
+
+  .submission-card.status-accepted {
+    border-left-color: #28a745;
+  }
+
+  .submission-card.status-rejected {
+    border-left-color: #dc3545;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .status-badge.under-process {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .status-badge.previewed {
+    background: #d1ecf1;
+    color: #0c5460;
+  }
+
+  .status-badge.meeting {
+    background: #e7e9ff;
+    color: #4a5bba;
+  }
+
+  .status-badge.accepted {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .status-badge.rejected {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .card-token {
+    font-size: 11px;
+    color: var(--secondary);
+    margin-bottom: 12px;
+  }
+
+  .card-details {
+    margin-bottom: 12px;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: var(--secondary);
+  }
+
+  .detail-label {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .card-btn:hover {
+    background: var(--light-bg);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .empty-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+  }
+
+  .empty-text {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* ===== NEW REQUEST FORM MODAL ===== */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--secondary);
+    cursor: pointer;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
     width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
   }
 
-  button:hover {
-    opacity: 0.9;
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
   }
 
-  button:disabled {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    width: auto;
+  }
+
+  .checkbox-item label {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .submit-btn:hover {
+    background: #1a1a1a;
+  }
+
+  .submit-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
+  .frozen-input {
+    background: var(--light-bg);
+    cursor: not-allowed;
   }
 
-  .grid label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    background: #f9fafb;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .grid label:hover {
-    background: #eef4ff;
-    border-color: var(--primary);
-  }
-
-  .grid input[type="checkbox"] {
-    transform: scale(1.2);
-  }
-
-  #message {
-    margin-top: 20px;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .back-btn {
-    background: #6c757d;
-  }
-
-  .highlight {
-    color: var(--primary);
-    font-weight: 700;
+  .frozen-input:focus {
+    border-color: var(--border);
+    box-shadow: none;
   }
 
   @media (max-width: 768px) {
-    .container {
-      padding: 20px;
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    input, textarea, select {
-      font-size: 0.95rem;
+    .profile-stats {
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .grid {
+    .submissions-grid {
       grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+      padding: 20px;
     }
   }
 </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-header">PageoNix</div>
+    <div class="header-right">
+      <div class="user-profile" onclick="toggleDropdown()">
+        <div class="avatar" id="avatarInitial">J</div>
+        <div class="user-info">
+          <div class="user-name" id="headerName">John Doe</div>
+          <div class="user-email" id="headerEmail">john@example.com</div>
+        </div>
+      </div>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-item" onclick="openEditProfile()">Edit Profile</div>
+        <div class="dropdown-item logout" onclick="logout()">Logout</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
   <div class="container">
-    <div class="top-actions">
-      <a href="track.html">Track Request</a>
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('profile')">Profile</div>
+      
     </div>
 
-    <h2>Submit New Request</h2>
+    <!-- PROFILE TAB -->
+    <div id="profileTab" class="tab-content">
+      <div class="profile-section">
+        <div class="profile-header">
+          <div class="profile-avatar-large" id="profileAvatarLarge">J</div>
+          <div class="profile-info">
+            <div class="profile-name" id="profileName">John Doe</div>
+            <div class="profile-email" id="profileEmail">john@example.com</div>
+            <div class="profile-stats">
+              <div class="stat">
+                <div class="stat-value" id="totalSubmissions">0</div>
+                <div class="stat-label">Total Submissions</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="activeSubmissions">0</div>
+                <div class="stat-label">Active Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="completedSubmissions">0</div>
+                <div class="stat-label">Completed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <form id="requestForm" method="POST" action="https://backend-first-cpf8.onrender.com/pageonix/submit">
-      <!-- STEP 1 -->
-      <div id="step1">
-        <label>What kind of website or project do you want?</label>
-        <select name="project_type" id="projectType" required>
-          <option value="">-- Select Type --</option>
-          <option value="Personal Portfolio">Personal Portfolio</option>
-          <option value="Business Website">Business / Corporate Site</option>
-          <option value="Modify/Extend Current Project">Modify/Extend Current Project</option>
-          <option value="Home Business Landing page">Home Business Landing page</option>
-          <option value="E-commerce Store">E-commerce Store</option>
-          <option value="Blog / Magazine">Blog or Magazine</option>
-          <option value="SaaS Platform">SaaS Platform</option>
-          <option value="Landing Page">Landing Page</option>
-          <option value="Web App / Dashboard">Web App / Admin Panel</option>
-          <option value="Educational Platform">Educational Platform</option>
-          <option value="Non-profit / NGO Site">Non-profit / NGO Site</option>
-          <option value="Custom Project">Custom Project</option>
-          
-        </select>
-        <button type="button" id="next1" disabled onclick="nextStep(2)">Next</button>
+    <!-- SUBMISSIONS TAB -->
+    <div id="submissionsTab" class="tab-content hidden">
+      <div class="submissions-header">
+        <div class="submissions-title">Your Submissions</div>
+        <button class="new-request-btn" onclick="openNewRequestForm()">+ New Request</button>
+      </div>
+      <div id="submissionsContainer"></div>
+    </div>
+  </div>
+
+  <!-- NEW REQUEST MODAL -->
+  <div id="requestModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Submit New Request</div>
+        <button class="close-btn" onclick="closeNewRequestForm()">&times;</button>
       </div>
 
-      <!-- STEP 2 -->
-      <div id="step2" class="hidden">
-        <label>Full Name</label>
-        <input type="text" name="name" required>
-        <label>Company / Organization</label>
-        <input type="text" name="company">
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Contact Number</label>
-        <input type="text" name="contact" required>
-        <button type="button" onclick="nextStep(3)">Next</button>
-        <button type="button" class="back-btn" onclick="prevStep(1)">Back</button>
-      </div>
-
-      <!-- STEP 3 -->
-      <div id="step3" class="hidden">
-        <label>Project Title</label>
-        <input type="text" name="project_title" required>
-        <label>Project Overview</label>
-        <textarea name="overview" rows="4" required></textarea>
-        <button type="button" onclick="nextStep(4)">Next</button>
-        <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
-      </div>
-
-      <!-- STEP 4 -->
-      <div id="step4" class="hidden">
-        <label>Preferred Technologies (select multiple)</label>
-        <div class="grid" id="techOptions"></div>
-        <button type="button" onclick="nextStep(5)">Next</button>
-        <button type="button" class="back-btn" onclick="prevStep(3)">Back</button>
-      </div>
-
-      <!-- STEP 5 -->
-      <div id="step5" class="hidden">
-        <label>Deliverables Required</label>
-        <div class="grid">
-          <label><input type="checkbox" name="deliverables[]" value="Design"> Design</label>
-          <label><input type="checkbox" name="deliverables[]" value="Development"> Development</label>
-          <label><input type="checkbox" name="deliverables[]" value="SEO"> SEO</label>
-          <label><input type="checkbox" name="deliverables[]" value="Maintenance"> Maintenance</label>
-          <label><input type="checkbox" name="deliverables[]" value="Hosting Setup"> Hosting Setup</label>
-          <label><input type="checkbox" name="deliverables[]" value="UI/UX Review"> UI/UX Review</label>
+      <form id="newRequestForm" onsubmit="submitNewRequest(event)">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="formName" readonly class="frozen-input">
         </div>
 
-        <label>Estimated Budget (USD)</label>
-        <input type="number" name="budget" required>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="formEmail" readonly class="frozen-input">
+        </div>
 
-        <label><input type="checkbox" name="agreement" required> I confirm all details are accurate.</label>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" id="formCompany">
+          </div>
+          <div class="form-group">
+            <label>Contact Number *</label>
+            <input type="tel" id="formContact" required>
+          </div>
+        </div>
 
-        <button type="submit">Submit Application</button>
-        <button type="button" class="back-btn" onclick="prevStep(4)">Back</button>
-      </div>
+        <div class="form-group">
+          <label>Project Type *</label>
+          <select id="formProjectType" required>
+            <option value="">-- Select Type --</option>
+            <option value="Personal Portfolio">Personal Portfolio</option>
+            <option value="Business Website">Business / Corporate Site</option>
+            <option value="E-commerce Store">Small business/ Shop</option>
+            <option value="Blog / Magazine">Blog or Magazine</option>
+            <option value="SaaS Platform">SaaS Platform</option>
+            <option value="Landing Page">Landing Page</option>
+            <option value="Web App / Dashboard">Web App / Admin Panel</option>
+            <option value="Educational Platform">Educational Platform</option>
+            <option value="Non-profit / NGO Site">Non-profit / NGO Site</option>
+            <option value="Custom Project">Custom Project</option>
+          </select>
+        </div>
 
-      <div id="message"></div>
-    </form>
+        <div class="form-group">
+          <label>Project Title *</label>
+          <input type="text" id="formProjectTitle" required>
+        </div>
+
+        <div class="form-group">
+          <label>Project Overview *</label>
+          <textarea id="formOverview" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Technologies</label>
+          <div class="checkbox-group" id="techCheckboxes"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Deliverables Required</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="delDesign" name="deliverables" value="Design">
+              <label for="delDesign">Design</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="delDev" name="deliverables" value="Development">
+              <label for="delDev">Development</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="delSEO" name="deliverables" value="SEO">
+              <label for="delSEO">SEO</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="delMaint" name="deliverables" value="Maintenance">
+              <label for="delMaint">Maintenance</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="delHosting" name="deliverables" value="Hosting Setup">
+              <label for="delHosting">Hosting Setup</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="delUX" name="deliverables" value="UI/UX Review">
+              <label for="delUX">UI/UX Review</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Estimated Budget (USD) *</label>
+          <input type="number" id="formBudget" required min="0">
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Request</button>
+      </form>
+    </div>
   </div>
 
 <script>
 const techStacks = [
-  "HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue.js", "Angular", "Svelte",
-  "Next.js", "Nuxt.js", "Node.js", "Express.js", "NestJS", "FastAPI", "Django",
-  "Flask", "Ruby on Rails", "Laravel", "Spring Boot", "ASP.NET Core", "GoLang",
-  "C#", "Python", "Java", "Kotlin", "PHP", "Rust", "C++", "React Native",
-  "Flutter", "Ionic", "Electron", "Firebase", "Supabase", "MongoDB", "MySQL",
-  "PostgreSQL", "Redis", "Elasticsearch", "Docker", "Kubernetes", "AWS", "GCP",
-  "Azure", "Vercel", "Netlify", "Tailwind CSS", "Bootstrap", "Material UI",
-  "GraphQL", "Prisma", "Strapi", "WordPress", "Shopify", "Wix", "Webflow"
+  "HTML", "CSS", "JavaScript", "TypeScript", "React", "Vue.js", "Angular", "Next.js",
+  "Node.js", "Express.js", "FastAPI", "Django", "Flask", "Laravel", "Spring Boot",
+  "Python", "Java", "Firebase", "MongoDB", "PostgreSQL", "AWS", "Docker", "Kubernetes",
+  "GraphQL", "REST API", "Tailwind CSS", "Bootstrap", "Sass", "Webpack", "Git", "CI/CD"
 ];
 
+let currentUser = {};
+
+const BASE_URL = "https://app.pageonix.in/pageonix";
+
+window.api = function(endpoint, options = {}) {
+  const full = endpoint.startsWith("http")
+    ? endpoint
+    : BASE_URL + endpoint;
+
+  return fetch(full, options);
+};
+
+
+// Initialize dashboard
+async function initDashboard() {
+  try {
+    const res = await fetch('/api/user/profile');
+    const data = await res.json();
+    if (data.status === 'success') {
+      currentUser = data.user;
+      updateUI();
+      await loadSubmissions();
+    } else {
+      window.location.href = 'login.html';
+    }
+  } catch (e) {
+    window.location.href = 'login.html';
+  }
+}
+
+function updateUI() {
+  const initials = (currentUser.name || 'J').split(' ').map(n => n[0]).join('');
+  
+  // Update header avatar
+  const headerAvatar = document.getElementById('avatarInitial');
+  if (currentUser.picture && currentUser.picture.trim() !== '') {
+    headerAvatar.innerHTML = `<img src="${currentUser.picture}" alt="${currentUser.name}" />`;
+    headerAvatar.classList.add('has-picture');
+  } else {
+    headerAvatar.textContent = initials;
+    headerAvatar.classList.remove('has-picture');
+  }
+  
+  // Update profile avatar
+  const profileAvatar = document.getElementById('profileAvatarLarge');
+  if (currentUser.picture && currentUser.picture.trim() !== '') {
+    profileAvatar.innerHTML = `<img src="${currentUser.picture}" alt="${currentUser.name}" />`;
+    profileAvatar.classList.add('has-picture');
+  } else {
+    profileAvatar.textContent = initials;
+    profileAvatar.classList.remove('has-picture');
+  }
+  
+  document.getElementById('headerName').textContent = currentUser.name;
+  document.getElementById('headerEmail').textContent = currentUser.email;
+  document.getElementById('profileName').textContent = currentUser.name;
+  document.getElementById('profileEmail').textContent = currentUser.email;
+  
+  document.getElementById('formName').value = currentUser.name;
+  document.getElementById('formEmail').value = currentUser.email;
+}
+
+async function loadSubmissions() {
+  try {
+    const res = await fetch('/api/user/submissions');
+    const data = await res.json();
+    if (data.status === 'success') {
+      const submissions = data.submissions;
+      document.getElementById('totalSubmissions').textContent = submissions.length;
+      document.getElementById('activeSubmissions').textContent = submissions.filter(s => s.status !== 'accepted' && s.status !== 'rejected').length;
+      document.getElementById('completedSubmissions').textContent = submissions.filter(s => s.status === 'accepted').length;
+      
+      renderSubmissions(submissions);
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function renderSubmissions(submissions) {
+  const container = document.getElementById('submissionsContainer');
+  if (submissions.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📋</div>
+        <div class="empty-title">No Submissions Yet</div>
+        <div class="empty-text">Start by creating your first project request</div>
+        <button class="new-request-btn" onclick="openNewRequestForm()">+ Create Request</button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="submissions-grid">
+      ${submissions.map(s => `
+        <div class="submission-card status-${s.status.replace(' ', '-').toLowerCase()}">
+          <div class="card-header">
+            <div class="card-title">${s.project_title}</div>
+            <div class="status-badge ${s.status.replace(' ', '-').toLowerCase()}">${s.status}</div>
+          </div>
+          <div class="card-token">Token: <strong>${s.token}</strong></div>
+          <div class="card-details">
+            <div class="detail-row">
+              <span class="detail-label">Type:</span>
+              <span>${s.project_type}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Budget:</span>
+              <span>$${s.budget}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Created:</span>
+              <span>${new Date(s.created_at).toLocaleDateString()}</span>
+            </div>
+            ${s.meeting_time ? `
+              <div class="detail-row">
+                <span class="detail-label">Meeting:</span>
+                <span>${new Date(s.meeting_time).toLocaleString()}</span>
+              </div>
+            ` : ''}
+          </div>
+          <div class="card-footer">
+            
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
 function populateTechOptions() {
-  const container = document.getElementById('techOptions');
-  techStacks.forEach(t => {
-    const label = document.createElement('label');
-    label.innerHTML = `<input type="checkbox" name="tech[]" value="${t}"> ${t}`;
-    container.appendChild(label);
+  const container = document.getElementById('techCheckboxes');
+  container.innerHTML = techStacks.map(t => `
+    <div class="checkbox-item">
+      <input type="checkbox" id="tech-${t}" name="tech" value="${t}">
+      <label for="tech-${t}">${t}</label>
+    </div>
+  `).join('');
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+  event.target.classList.add('active');
+  document.getElementById(tab + 'Tab').classList.remove('hidden');
+}
+
+function toggleDropdown() {
+  document.getElementById('dropdownMenu').classList.toggle('active');
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.user-profile') && !e.target.closest('.dropdown-menu')) {
+    document.getElementById('dropdownMenu').classList.remove('active');
+  }
+});
+
+function openNewRequestForm() {
+  document.getElementById('requestModal').classList.add('active');
+}
+
+function closeNewRequestForm() {
+  document.getElementById('requestModal').classList.remove('active');
+  document.getElementById('newRequestForm').reset();
+}
+
+async function submitNewRequest(e) {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append('name', document.getElementById('formName').value);
+  formData.append('email', document.getElementById('formEmail').value);
+  formData.append('company', document.getElementById('formCompany').value);
+  formData.append('contact', document.getElementById('formContact').value);
+  formData.append('project_type', document.getElementById('formProjectType').value);
+  formData.append('project_title', document.getElementById('formProjectTitle').value);
+  formData.append('overview', document.getElementById('formOverview').value);
+  formData.append('budget', document.getElementById('formBudget').value);
+  
+  document.querySelectorAll('input[name="tech"]:checked').forEach(cb => {
+    formData.append('tech[]', cb.value);
+  });
+  document.querySelectorAll('input[name="deliverables"]:checked').forEach(cb => {
+    formData.append('deliverables[]', cb.value);
+  });
+
+  try {
+    const res = await fetch('/api/user/submit', { method: 'POST', body: formData });
+    const data = await res.json();
+    if (data.status === 'success') {
+      closeNewRequestForm();
+      await loadSubmissions();
+      alert(`✅ Request submitted! Pls check youe email, pls check the spam section if not found. Refrsh the page after some time to see youur request here. Token: ${data.token}`);
+    } else {
+      alert('Error: ' + data.message);
+    }
+  } catch (e) {
+    alert('Submission failed');
+  }
+}
+
+function viewSubmission(id) {
+  alert('View details for ' + id + ' (to be implemented)');
+}
+
+function logout() {
+  fetch('/api/auth/logout', { method: 'POST' }).then(() => {
+    window.location.href = '/pageonix/login';
   });
 }
+
+// Init on load
 populateTechOptions();
+initDashboard();
 
-function nextStep(step) {
-  document.querySelectorAll('[id^="step"]').forEach(s => s.classList.add('hidden'));
-  document.getElementById('step' + step).classList.remove('hidden');
-}
-function prevStep(step) {
-  document.querySelectorAll('[id^="step"]').forEach(s => s.classList.add('hidden'));
-  document.getElementById('step' + step).classList.remove('hidden');
-}
+(function () {
 
-// Disable Next until project type selected
-const projectTypeSelect = document.getElementById('projectType');
-projectTypeSelect.addEventListener('change', () => {
-  document.getElementById('next1').disabled = projectTypeSelect.value === '';
-});
-
-document.getElementById('requestForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  const msg = document.getElementById('message');
-  btn.disabled = true;
-  btn.innerText = "Submitting...";
-  msg.innerText = "";
-  try {
-    const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-    const data = await res.json();
-    if (data.status === "success") {
-      msg.style.color = "#0d6efd";
-      msg.innerHTML = `
-        <div style="background:#e9f5ff;border-radius:8px;padding:16px;line-height:1.6;">
-          ${data.message}<br>
-          <b>Tracking Token:</b> ${data.token}<br><br>
-          📧 We've also sent a confirmation email — please check your inbox.<br>
-          <span class="highlight">⚠️If you can’t find it, check your spam folder.</span><br>
-          Our team is actively working to fix the spam issue. -Team PageoNix
-        </div>`;
-      form.reset();
-      nextStep(1);
-      document.getElementById('next1').disabled = true;
-    } else {
-      msg.style.color = "red";
-      msg.innerText = data.message;
+    // Prevent bot / crawler spam
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("bot") || ua.includes("crawl") || ua.includes("spider")) {
+        return; // no tracking for bots
     }
-  } catch (err) {
-    msg.style.color = "red";
-    msg.innerText = "Network error. Please try again.";
-  }
-  btn.disabled = false;
-  btn.innerText = "Submit Application";
-});
+
+    function getQuerySource() {
+        const params = new URLSearchParams(window.location.search);
+
+        return (
+            params.get("source") ||
+            params.get("ref") ||
+            params.get("utm") ||
+            params.get("from") ||
+            "direct"
+        );
+    }
+
+    function sendTrack() {
+
+        // FIXED: optional chaining removed
+        const page = (document.title ? document.title.trim() : "") || window.location.pathname;
+
+        const payload = {
+            page_name: page,
+            source: getQuerySource()
+        };
+
+        fetch("/api/xtrack-register-visit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        }).catch(err => console.warn("Track failed:", err));
+    }
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        sendTrack();
+    } else {
+        document.addEventListener("DOMContentLoaded", sendTrack);
+    }
+
+})();
+
 </script>
 </body>
 </html>
